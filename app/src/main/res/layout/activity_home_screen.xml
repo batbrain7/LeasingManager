@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.mohitkumar.internapp.Activities.HomeScreen">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#e9eae9"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/address"
+            android:background="#fa327e"
+            android:textColor="#fff"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:text="This is it"
+            android:padding="20dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Discussion Rooms "
+            android:id="@+id/discuss"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:padding="10dp"
+            android:textStyle="bold"
+            />
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/grid_view"
+            android:numColumns="2"
+            android:gravity="center"
+            >
+        </GridView>
+    </LinearLayout>
+
+</RelativeLayout>

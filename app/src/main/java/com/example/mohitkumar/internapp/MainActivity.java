@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     AutoCompleteTextView autoCompleteTextView;
     SignInButton signInButton;
     Button next;
+    String address;
     ProgressDialog progressDialog;
     String items[] = {"449 Palo Verde Road, Gainesville, FL","6731 Thompson Street, Gainesville, FL",
             "8771 Thomas Boulevard, Orlando, FL","1234 Verano Place, Orlando, FL"};
@@ -130,7 +131,12 @@ public class MainActivity extends AppCompatActivity {
                 databaseReference.child("User").child(UID).child("first_name").setValue(mAuth.getCurrentUser().getDisplayName().toString());
                 databaseReference.child("User").child(UID).child("last_name").setValue(mAuth.getCurrentUser().getDisplayName().toString());
                 databaseReference.child("User").child(UID).child("place_id").setValue(autoCompleteTextView.getText().toString());
-                startActivity(new Intent(getApplicationContext(),HomeScreen.class));
+
+                databaseReference.child("Places").child(UID).child("id").setValue(UID);
+                databaseReference.child("Places").child(UID).child("address").setValue(autoCompleteTextView.getText().toString());
+                Intent intent = new Intent(getApplicationContext(),HomeScreen.class);
+                intent.putExtra("address",autoCompleteTextView.getText().toString());
+                startActivity(intent);
                 finish();
             }
         });
