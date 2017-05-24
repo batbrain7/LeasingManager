@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1084410645019",
+    "firebase_url": "https://internapp-dc935.firebaseio.com",
+    "project_id": "internapp-dc935",
+    "storage_bucket": "internapp-dc935.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1084410645019:android:d27db1e37e60e0b1",
+        "android_client_info": {
+          "package_name": "com.example.mohitkumar.internapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1084410645019-iifoknij9qf080ejp5jssii45ojvac03.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mohitkumar.internapp",
+            "certificate_hash": "5a7897463ef7f2db86eb64cd2ca24e11a0ca5732"
+          }
+        },
+        {
+          "client_id": "1084410645019-rh1pdnop0ngcav8skt8r0u1ldrubfqdk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX0eBPLlu7rFrxZcb1UZ37QbUwd49o46Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1084410645019-rh1pdnop0ngcav8skt8r0u1ldrubfqdk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

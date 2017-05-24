@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.example.mohitkumar.internapp.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/home"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:id="@+id/welcome"
+        android:text="WELCOME TO LEASING MANAGERS"
+        android:textAppearance="?android:textAppearanceLarge"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login via Google"
+        android:gravity="center"
+        android:id="@+id/login"
+        android:layout_marginTop="30dp"
+        android:textSize="17dp"
+        />
+
+        <com.google.android.gms.common.SignInButton
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/sign_in"
+            />
+
+    </LinearLayout>
+
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:padding="5dp"
+          android:id="@+id/button_google"
+          android:layout_marginBottom="20dp"
+          android:layout_alignParentBottom="true"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:layout_marginTop="30dp"
+          android:background="@drawable/shape_button"
+
+          >
+          <ImageView
+              android:layout_width="35dp"
+              android:layout_height="35dp"
+              android:layout_marginLeft="20dp"
+              android:src="@drawable/googleicon"
+              />
+          <View
+              android:layout_width="2dp"
+              android:layout_height="match_parent"
+              android:background="#fff"
+              android:layout_marginLeft="20dp"
+              >
+          </View>
+          <TextView
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Sign In"
+              android:layout_gravity="center"
+              android:textColor="#fff"
+              android:id="@+id/goog_text"
+              android:textSize="20dp"
+              android:layout_marginLeft="80dp"
+              />
+      </LinearLayout>
+</RelativeLayout>
