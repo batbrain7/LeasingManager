@@ -12,36 +12,40 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         >
-    <ImageView
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:id="@+id/welcome"
+            android:text="WELCOME TO LEASING MANAGERS"
+            android:textAppearance="?android:textAppearanceLarge"
+            />
+
+        <ImageView
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:src="@drawable/home"
         />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:id="@+id/welcome"
-        android:text="WELCOME TO LEASING MANAGERS"
-        android:textAppearance="?android:textAppearanceLarge"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Login via Google"
-        android:gravity="center"
-        android:id="@+id/login"
-        android:layout_marginTop="30dp"
-        android:textSize="17dp"
-        />
-
-        <com.google.android.gms.common.SignInButton
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/sign_in"
+            android:layout_height="wrap_content"
+            android:text="Enter your Address"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/text_enter"
+            android:visibility="gone"
+            android:textAppearance="?android:textAppearanceLarge"
+            />
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:id="@+id/auto_text"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             />
 
     </LinearLayout>
@@ -84,4 +88,18 @@
               android:layout_marginLeft="80dp"
               />
       </LinearLayout>
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Next"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/next"
+        android:background="@drawable/shape_button"
+        android:textColor="#fff"
+        />
 </RelativeLayout>

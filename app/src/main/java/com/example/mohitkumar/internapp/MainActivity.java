@@ -1,5 +1,6 @@
 package com.example.mohitkumar.internapp;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,8 +33,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import static com.example.mohitkumar.internapp.R.id.sign_in;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,7 +50,13 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     FirebaseUser currentUser;
     String UID;
+    TextView wel,log,signin;
+    AutoCompleteTextView autoCompleteTextView;
     SignInButton signInButton;
+    Button next;
+    ProgressDialog progressDialog;
+    String items[] = {"449 Palo Verde Road, Gainesville, FL","6731 Thompson Street, Gainesville, FL",
+            "8771 Thomas Boulevard, Orlando, FL","1234 Verano Place, Orlando, FL"};
 
     public static final int RC_SIGN_IN = 100;
     @Override
@@ -52,11 +66,29 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-       currentUser = mAuth.getCurrentUser();
+        next = (Button) findViewById(R.id.next);
+
+        autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.auto_text);
+        ArrayAdapter<String> autocompleteAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_dropdown_item,items);
+        autoCompleteTextView.setAdapter(autocompleteAdapter);
+        log = (TextView) findViewById(R.id.text_enter);
+        wel = (TextView) findViewById(R.id.welcome);
+        signin = (TextView) findViewById(R.id.goog_text);
+        Typeface typeface = Typeface.createFromAsset(MainActivity.this.getAssets(),"fonts/Lato-Regular.ttf");
+        wel.setTypeface(typeface);
+        log.setTypeface(typeface);
+        signin.setTypeface(typeface);
+
+        layout = (LinearLayout) findViewById(R.id.button_google);
+
+        currentUser = mAuth.getCurrentUser();
         if(currentUser!=null) {
             UID = currentUser.getUid();
-            startActivity(new Intent(getApplicationContext(),HomeScreen.class));
-            finish();
+            layout.setVisibility(View.GONE);
+            autoCompleteTextView.setVisibility(View.VISIBLE);
+            log.setVisibility(View.VISIBLE);
+            next.setVisibility(View.VISIBLE);
         }
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -73,32 +105,37 @@ public class MainActivity extends AppCompatActivity {
                 addApi(Auth.GOOGLE_SIGN_IN_API,gso).build();
 
 
-        final TextView wel,log,signin;
-        wel = (TextView) findViewById(R.id.welcome);
-        log = (TextView)findViewById(R.id.login);
-        signin = (TextView) findViewById(R.id.goog_text);
-        Typeface typeface = Typeface.createFromAsset(MainActivity.this.getAssets(),"fonts/Lato-Regular.ttf");
-        wel.setTypeface(typeface);
-        log.setTypeface(typeface);
-        signin.setTypeface(typeface);
 
-        layout = (LinearLayout) findViewById(R.id.button_google);
-        signInButton = (SignInButton)findViewById(sign_in);
 
-        signInButton.setOnClickListener(new View.OnClickListener() {
+
+
+       // signInButton = (SignInButton)findViewById(sign_in);
+
+
+        layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               signIn();
+                progressDialog = new ProgressDialog(MainActivity.this);
+                progressDialog.setTitle("Logging in");
+                progressDialog.setMessage("Wait...");
+                progressDialog.show();
+                signIn();
+            }
+        });
+
+        next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+                databaseReference.child("User").child(UID).child("first_name").setValue(mAuth.getCurrentUser().getDisplayName().toString());
+                databaseReference.child("User").child(UID).child("last_name").setValue(mAuth.getCurrentUser().getDisplayName().toString());
+                databaseReference.child("User").child(UID).child("place_id").setValue(autoCompleteTextView.getText().toString());
+                startActivity(new Intent(getApplicationContext(),HomeScreen.class));
+                finish();
             }
         });
     }
-//
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        //updateUI(currentUser);
-//    }
+
 
 
     private void signIn() {
@@ -139,8 +176,12 @@ public class MainActivity extends AppCompatActivity {
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             UID = user.getUid();
-                            startActivity(new Intent(getApplicationContext(),HomeScreen.class));
-                            finish();
+                            progressDialog.dismiss();
+                            UID = user.getUid();
+                            layout.setVisibility(View.GONE);
+                            autoCompleteTextView.setVisibility(View.VISIBLE);
+                            log.setVisibility(View.VISIBLE);
+                            next.setVisibility(View.VISIBLE);
                            // updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.

@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">InternApp</string>
+
+    <string-array name="address_array">
+        <item>449 Palo Verde Road, Gainesville, FL</item>
+        <item>6731 Thompson Street, Gainesville, FL</item>
+        <item>8771 Thomas Boulevard, Orlando, FL</item>
+        <item>1234 Verano Place, Orlando, FL</item>
+    </string-array>
 </resources>
