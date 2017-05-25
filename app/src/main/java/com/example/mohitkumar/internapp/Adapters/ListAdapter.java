@@ -85,7 +85,7 @@ public class ListAdapter extends ArrayAdapter {
 
         d.name.setText(listViewData.getName());
         d.message.setText(listViewData.getMessage());
-        d.time.setText(listViewData.getTime());
+      //  d.time.setText(listViewData.getTime());
 
         return view;
     }

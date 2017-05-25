@@ -34,6 +34,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.wang.avi.AVLoadingIndicatorView;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     Button next;
     String address;
     ProgressDialog progressDialog;
+    AVLoadingIndicatorView avLoadingIndicatorView;
     String items[] = {"449 Palo Verde Road, Gainesville, FL","6731 Thompson Street, Gainesville, FL",
             "8771 Thomas Boulevard, Orlando, FL","1234 Verano Place, Orlando, FL"};
 
@@ -63,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         next = (Button) findViewById(R.id.next);
-
+        avLoadingIndicatorView = (AVLoadingIndicatorView) findViewById(R.id.loaderview);
         autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.auto_text);
         ArrayAdapter<String> autocompleteAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_dropdown_item,items);
@@ -123,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                avLoadingIndicatorView.show();
                 Log.d("Committed","Address");
 
                 SharedPreferences pref = getSharedPreferences("Address",Context.MODE_PRIVATE);
@@ -144,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("email",mAuth.getCurrentUser().getEmail().toString());
                 startActivity(intent);
                 finish();
+                avLoadingIndicatorView.hide();
             }
         });
     }

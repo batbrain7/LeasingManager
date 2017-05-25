@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context="com.example.mohitkumar.internapp.Activities.DiscussionActivity">
 
+    <com.wang.avi.AVLoadingIndicatorView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/loaderview"
+        style="@style/AVLoadingIndicatorView.Large"
+        android:elevation="33dp"
+        android:visibility="invisible"
+        app:indicatorName="BallTrianglePathIndicator"
+        app:indicatorColor="#3a329b"
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
@@ -14,19 +25,20 @@
         >
         <ImageView
             android:layout_width="60dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:src="@drawable/electricity"
             android:id="@+id/image_type"
+            android:layout_gravity="center"
             />
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:id="@+id/disc_head"
             android:text="Electricity Discussion Room"
             android:textColor="#fff"
             android:textAppearance="?android:textAppearanceLarge"
-            android:layout_gravity="center"
+            android:gravity="center"
             />
     </LinearLayout>
     <LinearLayout
@@ -39,6 +51,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/list_view"
+                android:divider="@null"
+                android:dividerHeight="0dp"
                 android:layout_weight="1"
                 >
             </ListView>

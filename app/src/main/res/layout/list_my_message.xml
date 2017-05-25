@@ -31,7 +31,6 @@
             />
         <TextView
             android:gravity="end"
-            android:text="3"
             android:textColor="#000"
             android:layout_marginRight="5dp"
             android:layout_width="match_parent"

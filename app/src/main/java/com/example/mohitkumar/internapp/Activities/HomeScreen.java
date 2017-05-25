@@ -16,12 +16,15 @@ import android.widget.Toast;
 
 import com.example.mohitkumar.internapp.Adapters.GridAdapter;
 import com.example.mohitkumar.internapp.R;
+import com.wang.avi.AVLoadingIndicatorView;
 
 public class HomeScreen extends AppCompatActivity {
 
     String[] web = {"Electricity","Water","Rent","Garbage","Special Events","Common"};
     int[] imageId = {R.drawable.electricity,R.drawable.droplet,R.drawable.money,R.drawable.trash1,R.drawable.register,
             R.drawable.alarm};
+
+    AVLoadingIndicatorView avi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,6 @@ public class HomeScreen extends AppCompatActivity {
 
        // String address = getIntent().getStringExtra("address");
         final String email = getIntent().getStringExtra("email");
-
         TextView add_text = (TextView) findViewById(R.id.address);
         TextView disc = (TextView)findViewById(R.id.discuss);
 

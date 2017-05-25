@@ -102,4 +102,15 @@
         android:background="@drawable/shape_button"
         android:textColor="#fff"
         />
+    <com.wang.avi.AVLoadingIndicatorView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/loaderview"
+        style="@style/AVLoadingIndicatorView.Large"
+        android:elevation="33dp"
+        android:visibility="invisible"
+        app:indicatorName="BallRotateIndicator"
+        app:indicatorColor="#3a329b"
+        />
 </RelativeLayout>

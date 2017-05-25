@@ -12,12 +12,12 @@
         android:padding="4dp"
         >
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/name_person"
             android:text="Mohit Kumar"
             android:textColor="#fff"
-            android:gravity="end"
+            android:layout_gravity="end"
             />
         <TextView
             android:layout_width="match_parent"
@@ -30,7 +30,6 @@
             />
         <TextView
             android:gravity="end"
-            android:text="3"
             android:textColor="#fff"
             android:layout_marginRight="5dp"
             android:layout_width="match_parent"
