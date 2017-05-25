@@ -22,4 +22,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme3" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#1e3548</item>
+        <item name="colorPrimaryDark">#0f1a24</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
 </resources>

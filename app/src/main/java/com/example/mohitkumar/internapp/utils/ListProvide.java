@@ -9,11 +9,21 @@ import java.util.List;
 public class ListProvide {
 
     String name,message,time;
+    String diff;
 
-    public ListProvide(String name,String message,String time) {
+    public ListProvide(String name,String message,String time,String diff) {
         this.name = name;
         this.message = message;
         this.time = time;
+        this.diff = diff;
+    }
+
+    public String getDiff() {
+        return diff;
+    }
+
+    public void setDiff(String diff) {
+        this.diff = diff;
     }
 
     public String getName() {

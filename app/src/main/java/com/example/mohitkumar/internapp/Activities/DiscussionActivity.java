@@ -1,6 +1,8 @@
 package com.example.mohitkumar.internapp.Activities;
 
 import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
@@ -37,6 +39,7 @@ public class DiscussionActivity extends AppCompatActivity {
     EditText editText;
     ListView listView;
     TextView heading;
+    ListProvide listProvide;
     ImageView itype;
     ArrayList<ListProvide> arrayList;
     ArrayList<String> date,email,message;
@@ -85,6 +88,7 @@ public class DiscussionActivity extends AppCompatActivity {
         ProgressDialog progressDialog = new ProgressDialog(DiscussionActivity.this);
         progressDialog.setTitle("Loading....");
         progressDialog.show();
+        Log.d("On","Create");
         UpdateAdapter(address,type);
         progressDialog.dismiss();
 
@@ -113,24 +117,33 @@ public class DiscussionActivity extends AppCompatActivity {
     }
 
     public void UpdateAdapter(String address, final String type) {
+
+        SharedPreferences preferences = getSharedPreferences("Email", Context.MODE_PRIVATE);
+        final String mail = preferences.getString("Email","");
+
+        Log.d("Update","Adapter");
         databaseReference.child("Discussion").child(address).child(type).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 int i = 0;
-
+                Log.d("Inside","Adapter");
                 ListAdapter listAdapter = new ListAdapter(DiscussionActivity.this,R.layout.list_message);
                 listView.setAdapter(listAdapter);
                 for(DataSnapshot file : dataSnapshot.getChildren()) {
                     //date.add(file.getKey());
-                    String Date = "";
+                    Log.d("i",String.valueOf(i));
+                    String Date = (String)file.getKey();
                     String Email = (String) file.child("Email").getValue();
                     String Message = (String)file.child("Message").getValue();
 
-                    ListProvide listProvide = new ListProvide(Email,Message,Date);
-                    arrayList.add(listProvide);
+                    if(mail.equals(Email))
+                       listProvide = new ListProvide(Email,Message,Date,"m");
+                    else
+                        listProvide = new ListProvide(Email,Message,Date,"o");
+                    //arrayList.add(listProvide);
                     listAdapter.add(listProvide);
+                    i++;
                 }
-
             }
 
             @Override

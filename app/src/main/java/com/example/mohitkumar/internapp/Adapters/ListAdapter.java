@@ -24,6 +24,7 @@ import java.util.List;
 public class ListAdapter extends ArrayAdapter {
 
     List list = new ArrayList();
+    public static final String type = null;
 
     public ListAdapter(@NonNull Context context, @LayoutRes int resource) {
         super(context, resource);
@@ -58,9 +59,14 @@ public class ListAdapter extends ArrayAdapter {
         View view;
         view = convertView;
         Data d;
+        ListProvide listViewData = (ListProvide) this.getItem(position);
         if(convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater)this.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.list_message,parent,false);
+
+            if(listViewData.getDiff().equals("o"))
+                view = layoutInflater.inflate(R.layout.list_message,parent,false);
+            else
+                view = layoutInflater.inflate(R.layout.list_my_message,parent,false);
             d = new ListAdapter.Data();
             d.name = (TextView)view.findViewById(R.id.name_person);
             d.message = (TextView)view.findViewById(R.id.message_text);
@@ -70,11 +76,12 @@ public class ListAdapter extends ArrayAdapter {
         else  {
             d = (ListAdapter.Data)view.getTag();
         }
-        Typeface tf = Typeface.createFromAsset(getContext().getAssets(),"fonts/OpenSans-Light.ttf");
-        Typeface tff = Typeface.createFromAsset(getContext().getAssets(),"fonts/OpenSans-Regular.ttf");
+        Typeface tf = Typeface.createFromAsset(getContext().getAssets(),"fonts/Lato-Regular.ttf");
 
+        d.name.setTypeface(tf);
+        d.time.setTypeface(tf);
+        d.message.setTypeface(tf);
 
-        ListProvide listViewData = (ListProvide) this.getItem(position);
 
         d.name.setText(listViewData.getName());
         d.message.setText(listViewData.getMessage());

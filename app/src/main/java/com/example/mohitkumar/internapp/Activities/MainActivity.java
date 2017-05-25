@@ -1,4 +1,4 @@
-package com.example.mohitkumar.internapp;
+package com.example.mohitkumar.internapp.Activities;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -17,10 +17,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mohitkumar.internapp.Activities.HomeScreen;
+import com.example.mohitkumar.internapp.R;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInApi;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
@@ -33,11 +32,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -66,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
-
         next = (Button) findViewById(R.id.next);
 
         autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.auto_text);
@@ -127,6 +122,16 @@ public class MainActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Log.d("Committed","Address");
+
+                SharedPreferences pref = getSharedPreferences("Address",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor4 = pref.edit();
+                editor4.putString("Address",autoCompleteTextView.getText().toString());
+                editor4.commit();
+
+                Log.d("ADDRESS",pref.getString("Address",""));
+
                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
                 databaseReference.child("User").child(UID).child("first_name").setValue(mAuth.getCurrentUser().getDisplayName().toString());
                 databaseReference.child("User").child(UID).child("last_name").setValue(mAuth.getCurrentUser().getDisplayName().toString());
@@ -135,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                 databaseReference.child("Places").child(UID).child("id").setValue(UID);
                 databaseReference.child("Places").child(UID).child("address").setValue(autoCompleteTextView.getText().toString());
                 Intent intent = new Intent(getApplicationContext(),HomeScreen.class);
-                intent.putExtra("address",autoCompleteTextView.getText().toString());
+              //  intent.putExtra("address",autoCompleteTextView.getText().toString());
                 intent.putExtra("email",mAuth.getCurrentUser().getEmail().toString());
                 startActivity(intent);
                 finish();
@@ -184,11 +189,22 @@ public class MainActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             UID = user.getUid();
                             progressDialog.dismiss();
+
                             UID = user.getUid();
                             layout.setVisibility(View.GONE);
                             autoCompleteTextView.setVisibility(View.VISIBLE);
                             log.setVisibility(View.VISIBLE);
                             next.setVisibility(View.VISIBLE);
+
+                            SharedPreferences sharedPreferences = getSharedPreferences("Email",Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor=sharedPreferences.edit();
+                            editor.putString("Email",user.getEmail().toString());
+                            editor.commit();
+
+//                            SharedPreferences preferences = getSharedPreferences("OTP",Context.MODE_PRIVATE);
+//                            SharedPreferences.Editor editor1 = preferences.edit();
+//                            editor1.putString("OTP","FOOL");
+
                            // updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.

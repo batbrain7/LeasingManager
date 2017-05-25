@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,8 +21,11 @@
         </activity>
         <activity
             android:name=".Activities.HomeScreen"
-            android:theme="@style/AppTheme"></activity>
-        <activity android:name=".Activities.DiscussionActivity"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".Activities.DiscussionActivity"
+                android:theme="@style/AppTheme3"
+            />
+        <activity android:name=".Activities.MainActivity"></activity>
     </application>
 
 </manifest>

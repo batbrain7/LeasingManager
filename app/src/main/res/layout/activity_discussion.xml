@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="?actionBarSize"
-        android:background="#fa327e"
+        android:background="#1e3548"
         android:orientation="horizontal"
         >
         <ImageView
@@ -29,43 +29,55 @@
             android:layout_gravity="center"
             />
     </LinearLayout>
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?actionBarSize"
+        android:orientation="vertical"
         >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
             <ListView
+                android:layout_marginTop="?actionBarSize"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:id="@+id/list_view"
+                android:layout_weight="1"
                 >
             </ListView>
-        </LinearLayout>
-    </ScrollView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#6e9ec3"
+            ></View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
         android:layout_alignParentBottom="true"
         android:layout_marginRight="60dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="5dp"
         android:hint="Write a Comment"
+        android:gravity="center_vertical"
+        android:background="@android:color/transparent"
         android:inputType="textMultiLine"
         android:id="@+id/comment_edit"
         />
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
         android:src="@drawable/sedn"
+        android:layout_marginTop="2dp"
         android:id="@+id/send_button"
-        android:layout_height="wrap_content"
+        app:backgroundTint="#4b86b4"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="10dp"
         />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
