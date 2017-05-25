@@ -32,6 +32,7 @@ public class ListAdapter extends ArrayAdapter {
     static class Data {
         TextView name;
         TextView message;
+        TextView time;
     }
 
     @Override
@@ -63,7 +64,7 @@ public class ListAdapter extends ArrayAdapter {
             d = new ListAdapter.Data();
             d.name = (TextView)view.findViewById(R.id.name_person);
             d.message = (TextView)view.findViewById(R.id.message_text);
-
+            d.time = (TextView) view.findViewById(R.id.date_time);
             view.setTag(d);
         }
         else  {
@@ -75,7 +76,11 @@ public class ListAdapter extends ArrayAdapter {
 
         ListProvide listViewData = (ListProvide) this.getItem(position);
 
+        d.name.setText(listViewData.getName());
+        d.message.setText(listViewData.getMessage());
+        d.time.setText(listViewData.getTime());
+
         return view;
     }
-    
+
 }

@@ -25,6 +25,7 @@ public class HomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_home_screen);
 
         final String address = getIntent().getStringExtra("address");
+        final String email = getIntent().getStringExtra("email");
         TextView add_text = (TextView) findViewById(R.id.address);
         TextView disc = (TextView)findViewById(R.id.discuss);
 
@@ -45,6 +46,7 @@ public class HomeScreen extends AppCompatActivity {
                 Intent intent = new Intent(HomeScreen.this, DiscussionActivity.class);
                 intent.putExtra("Type","" + web[+ position ]);
                 intent.putExtra("Address",address);
+                intent.putExtra("email",email);
                 startActivity(intent);
 
             }

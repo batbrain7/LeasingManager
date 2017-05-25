@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 databaseReference.child("Places").child(UID).child("address").setValue(autoCompleteTextView.getText().toString());
                 Intent intent = new Intent(getApplicationContext(),HomeScreen.class);
                 intent.putExtra("address",autoCompleteTextView.getText().toString());
+                intent.putExtra("email",mAuth.getCurrentUser().getEmail().toString());
                 startActivity(intent);
                 finish();
             }

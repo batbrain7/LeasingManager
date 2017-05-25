@@ -8,11 +8,12 @@ import java.util.List;
 
 public class ListProvide {
 
-    String name,message;
+    String name,message,time;
 
-    public ListProvide(String name,String message) {
+    public ListProvide(String name,String message,String time) {
         this.name = name;
         this.message = message;
+        this.time = time;
     }
 
     public String getName() {
@@ -21,6 +22,14 @@ public class ListProvide {
 
     public String getMessage() {
         return message;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 
     public void setName(String name) {

@@ -1,16 +1,34 @@
 package com.example.mohitkumar.internapp.Activities;
 
+import android.app.ProgressDialog;
+import android.icu.text.SimpleDateFormat;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.mohitkumar.internapp.Adapters.ListAdapter;
 import com.example.mohitkumar.internapp.R;
+import com.example.mohitkumar.internapp.utils.ListProvide;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
+import static com.example.mohitkumar.internapp.R.id.address;
 
 public class DiscussionActivity extends AppCompatActivity {
 
@@ -20,14 +38,24 @@ public class DiscussionActivity extends AppCompatActivity {
     ListView listView;
     TextView heading;
     ImageView itype;
+    ArrayList<ListProvide> arrayList;
+    ArrayList<String> date,email,message;
+    DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discussion);
 
-        String type = getIntent().getStringExtra("Type");
-        String address = getIntent().getStringExtra("Address");
+        final String type = getIntent().getStringExtra("Type");
+        final String address = getIntent().getStringExtra("Address");
+        final String email = getIntent().getStringExtra("email");
+        itype = (ImageView) findViewById(R.id.image_type);
+        heading = (TextView) findViewById(R.id.disc_head);
+
+        listView = (ListView) findViewById(R.id.list_view);
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
 
         if(type.equals("Electricity")) {
             itype.setImageResource(R.drawable.electricity);
@@ -50,11 +78,65 @@ public class DiscussionActivity extends AppCompatActivity {
         }
 
 
+        editText = (EditText) findViewById(R.id.comment_edit);
+        floatingActionButton = (FloatingActionButton) findViewById(R.id.send_button);
 
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
-//        databaseReference.child("Discussion").child(address).child(type).setValue();
-//        databaseReference.child("User").child(UID).child("last_name").setValue(mAuth.getCurrentUser().getDisplayName().toString());
-//        databaseReference.child("User").child(UID).child("place_id").setValue(autoCompleteTextView.getText().toString());
 
+        ProgressDialog progressDialog = new ProgressDialog(DiscussionActivity.this);
+        progressDialog.setTitle("Loading....");
+        progressDialog.show();
+        UpdateAdapter(address,type);
+        progressDialog.dismiss();
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if(!editText.getText().equals("")) {
+                    Log.d("In here","inside");
+                    ProgressDialog progressDialog = new ProgressDialog(DiscussionActivity.this);
+                    progressDialog.setTitle("Wait..");
+                    progressDialog.setMessage("Posting your Comment");
+                    progressDialog.show();
+                    progressDialog.setCancelable(false);
+                    Calendar c = Calendar.getInstance();
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    String formattedDate = simpleDateFormat.format(c.getTime());
+                    databaseReference.child("Discussion").child(address).child(type).child(formattedDate).child("Email").setValue(email);
+                    databaseReference.child("Discussion").child(address).child(type).child(formattedDate).child("Message").setValue(editText.getText().toString());
+                    editText.setText("");
+                    UpdateAdapter(address,type);
+                    progressDialog.dismiss();
+                }
+            }
+        });
+    }
+
+    public void UpdateAdapter(String address, final String type) {
+        databaseReference.child("Discussion").child(address).child(type).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                int i = 0;
+
+                ListAdapter listAdapter = new ListAdapter(DiscussionActivity.this,R.layout.list_message);
+                listView.setAdapter(listAdapter);
+                for(DataSnapshot file : dataSnapshot.getChildren()) {
+                    //date.add(file.getKey());
+                    String Date = "";
+                    String Email = (String) file.child("Email").getValue();
+                    String Message = (String)file.child("Message").getValue();
+
+                    ListProvide listProvide = new ListProvide(Email,Message,Date);
+                    arrayList.add(listProvide);
+                    listAdapter.add(listProvide);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }
