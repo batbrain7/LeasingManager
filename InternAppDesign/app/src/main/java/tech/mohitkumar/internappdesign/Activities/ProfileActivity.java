@@ -13,13 +13,14 @@ import tech.mohitkumar.internappdesign.Adapters.CardPagerAdapter;
 import tech.mohitkumar.internappdesign.Adapters.CardPagerFragmentAdapter;
 import tech.mohitkumar.internappdesign.Fragments.CardFragments;
 import tech.mohitkumar.internappdesign.Fragments.LatestFragment;
+import tech.mohitkumar.internappdesign.Fragments.MyVideos;
 import tech.mohitkumar.internappdesign.Fragments.Notification;
+import tech.mohitkumar.internappdesign.Fragments.ReplyFragment;
 import tech.mohitkumar.internappdesign.Models.CardItem;
 import tech.mohitkumar.internappdesign.R;
 import tech.mohitkumar.internappdesign.ShadowTransformer;
 
-public class ProfileActivity extends AppCompatActivity implements View.OnClickListener,
-        CompoundButton.OnCheckedChangeListener{
+public class ProfileActivity extends AppCompatActivity {
 
     private Button mButton;
     private ViewPager mViewPager;
@@ -36,53 +37,36 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        mViewPager = (ViewPager) findViewById(R.id.viewPager);
-        mButton = (Button) findViewById(R.id.cardTypeBtn);
-        ((CheckBox) findViewById(R.id.checkBox)).setOnCheckedChangeListener(this);
-        mButton.setOnClickListener(this);
+        getSupportActionBar().setTitle("Profile");
 
-        mCardAdapter = new CardPagerAdapter();
-        mCardAdapter.addCardItem(new CardItem(R.string.title_1, R.string.text_1));
-        mCardAdapter.addCardItem(new CardItem(R.string.title_2, R.string.text_1));
-        mCardAdapter.addCardItem(new CardItem(R.string.title_3, R.string.text_1));
-        mCardAdapter.addCardItem(new CardItem(R.string.title_4, R.string.text_1));
+        mViewPager = (ViewPager) findViewById(R.id.viewPager);
+        mViewPager.setPageMargin(-50);
+        //mViewPager.setHorizontalFadingEdgeEnabled(true);
+        //mViewPager.setFadingEdgeLength(30);
+//        mCardAdapter = new CardPagerAdapter();
+//        mCardAdapter.addCardItem(new CardItem(R.string.title_1, R.string.text_1));
+//        mCardAdapter.addCardItem(new CardItem(R.string.title_2, R.string.text_1));
+//        mCardAdapter.addCardItem(new CardItem(R.string.title_3, R.string.text_1));
+//        mCardAdapter.addCardItem(new CardItem(R.string.title_4, R.string.text_1));
         mFragmentCardAdapter = new CardPagerFragmentAdapter(getSupportFragmentManager(),
                 dpToPixels(2, this));
 
-        mFragmentCardAdapter.addCardFragment(new CardFragments());
         mFragmentCardAdapter.addCardFragment(new Notification());
+        mFragmentCardAdapter.addCardFragment(new ReplyFragment());
+        mFragmentCardAdapter.addCardFragment(new MyVideos());
+        mFragmentCardAdapter.addCardFragment(new CardFragments());
 
-        mCardShadowTransformer = new ShadowTransformer(mViewPager, mCardAdapter);
+        // mCardShadowTransformer = new ShadowTransformer(mViewPager, mCardAdapter);
         mFragmentCardShadowTransformer = new ShadowTransformer(mViewPager, mFragmentCardAdapter);
-
-        mViewPager.setAdapter(mCardAdapter);
-        mViewPager.setPageTransformer(false, mCardShadowTransformer);
+        mFragmentCardShadowTransformer.enableScaling();
+        mViewPager.setAdapter(mFragmentCardAdapter);
+        mViewPager.setPageTransformer(false, mFragmentCardShadowTransformer);
         mViewPager.setOffscreenPageLimit(3);
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (!mShowingFragments) {
-            mButton.setText("Views");
-            mViewPager.setAdapter(mFragmentCardAdapter);
-            mViewPager.setPageTransformer(false, mFragmentCardShadowTransformer);
-        } else {
-            mButton.setText("Fragments");
-            mViewPager.setAdapter(mCardAdapter);
-            mViewPager.setPageTransformer(false, mCardShadowTransformer);
-        }
-
-        mShowingFragments = !mShowingFragments;
 
     }
+
 
     public static float dpToPixels(int dp, Context context) {
         return dp * (context.getResources().getDisplayMetrics().density);
-    }
-
-    @Override
-    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        mCardShadowTransformer.enableScaling(isChecked);
-        mFragmentCardShadowTransformer.enableScaling(isChecked);
     }
 }

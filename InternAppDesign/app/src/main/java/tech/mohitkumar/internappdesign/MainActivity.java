@@ -1,11 +1,15 @@
 package tech.mohitkumar.internappdesign;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -32,6 +36,7 @@ public class MainActivity extends AppCompatActivity
     TabLayout tabLayout;
     ViewPager viewPager;
     ViewPagerAdapter pagerAdapter;
+    CoordinatorLayout coordinatorLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,15 +53,48 @@ public class MainActivity extends AppCompatActivity
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
+        FloatingActionButton floatingActionButton = (FloatingActionButton) findViewById(R.id.add_video);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+                startActivity(intent);
+            }
+        });
 
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        coordinatorLayout = (CoordinatorLayout) findViewById(R.id.rel_shift);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
+                coordinatorLayout.setTranslationX(slideOffset * drawerView.getWidth());
+                drawer.bringChildToFront(drawerView);
+                drawer.requestLayout();
+                drawer.setScrimColor(Color.TRANSPARENT);
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                supportInvalidateOptionsMenu();
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                supportInvalidateOptionsMenu();
+            }
+        };
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        DrawerLayout.LayoutParams params = (DrawerLayout.LayoutParams) navigationView.getLayoutParams();
+        params.width = (int) (metrics.widthPixels*0.66);
+
+        navigationView.setLayoutParams(params);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -105,10 +143,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(intent);
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 

@@ -1,13 +1,106 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tech.mohitkumar.internappdesign.Fragments.Notification">
+    android:layout_gravity="center"
+    app:cardUseCompatPadding="true">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notification"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textAlignment="center"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="?actionBarSize"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="H4U Given"
+                android:textSize="18dp"
+                android:textColor="#e0115f"
+                android:gravity="center"
+                android:layout_weight="1"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#50c878"
+                android:layout_weight="1"
+                android:textSize="18dp"
+                android:text="H4U Recieved"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="70dp"
+            android:id="@+id/no_lin_layout"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="69"
+                android:id="@+id/h4u_given"
+                android:gravity="center"
+                android:textSize="100dp"
+                android:textColor="#e0115f"
+                android:layout_weight="1"
+                />
+            <View
+                android:layout_width="2dp"
+                android:layout_height="120dp"
+                android:background="#000"
+                >
+            </View>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="100dp"
+                android:id="@+id/h4u_recieved"
+                android:gravity="center"
+                android:textColor="#50c878"
+                android:layout_weight="1"
+                android:text="96"
+                />
+        </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/recycler_notifications"
+                android:layout_below="@id/no_lin_layout"
+                >
+            </android.support.v7.widget.RecyclerView>
+        </RelativeLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="-5dp"
+            android:src="@drawable/ic_bookmark_24dp" />
+
+    </FrameLayout>
+
+</android.support.v7.widget.CardView>

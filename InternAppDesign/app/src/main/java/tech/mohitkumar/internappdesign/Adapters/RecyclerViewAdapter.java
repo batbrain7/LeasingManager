@@ -67,7 +67,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
-    public void onBindViewHolder(RecyclerViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerViewHolder holder, final int position) {
         CardViewData cardViewData = arrayList.get(position);
         Handler mainHandler;
         Timeline.Window window;
@@ -132,6 +132,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 Intent i = new Intent(context, FullScreenVideos.class);
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(i);
+            }
+        });
+
+        final boolean[] b = {true};
+        holder.heart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(b[0]) {
+                    holder.heart.setImageResource(R.drawable.heart1);
+                    b[0] = false;
+                } else if(!b[0]) {
+                    holder.heart.setImageResource(R.drawable.hearts);
+                    b[0] = true;
+                }
             }
         });
 

@@ -9,24 +9,15 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:gravity="center"
             android:textStyle="bold"
             android:textAppearance="?android:textAppearanceLarge"
-            android:text="My Videos"
+            android:text="Reply"
             android:textAlignment="center"
             />
-        <android.support.v7.widget.RecyclerView
-            android:layout_marginTop="?actionBarSize"
-            android:layout_width="match_parent"
-            android:paddingTop="10dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/my_videos_recycler"
-            >
-        </android.support.v7.widget.RecyclerView>
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,6 +33,15 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="-5dp"
             android:src="@drawable/ic_bookmark_24dp" />
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?actionBarSize"
+            android:paddingTop="10dp"
+            android:id="@+id/reply_recycler"
+            >
+        </android.support.v7.widget.RecyclerView>
+
     </FrameLayout>
 
 </android.support.v7.widget.CardView>

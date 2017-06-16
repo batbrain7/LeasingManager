@@ -14,11 +14,11 @@ import tech.mohitkumar.internappdesign.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyVideos extends CardFragments {
+public class ReplyFragment extends CardFragments {
 
     private CardView mCardView;
 
-    public MyVideos() {
+    public ReplyFragment() {
         // Required empty public constructor
     }
 
@@ -27,7 +27,7 @@ public class MyVideos extends CardFragments {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_my_videos, container, false);
+        View view = inflater.inflate(R.layout.fragment_reply, container, false);
         mCardView = (CardView) view.findViewById(R.id.cardView);
         mCardView.setMaxCardElevation(mCardView.getCardElevation()
                 * CardAdapter.MAX_ELEVATION_FACTOR);

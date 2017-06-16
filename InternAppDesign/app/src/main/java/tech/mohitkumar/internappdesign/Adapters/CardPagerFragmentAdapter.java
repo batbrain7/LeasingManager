@@ -25,10 +25,11 @@ public class CardPagerFragmentAdapter extends FragmentStatePagerAdapter implemen
         super(fm);
         fragment = new ArrayList<>();
         this.baseElevation = baseElevation;
+    }
 
-        for(int i = 0; i< 5; i++){
-            addCardFragment(new CardFragments());
-        }
+    @Override
+    public float getPageWidth(int position) {
+        return 1f;
     }
 
     @Override

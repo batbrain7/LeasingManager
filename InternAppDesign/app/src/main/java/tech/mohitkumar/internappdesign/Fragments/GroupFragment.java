@@ -1,11 +1,9 @@
 package tech.mohitkumar.internappdesign.Fragments;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GestureDetectorCompat;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,21 +12,11 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-
 import java.util.ArrayList;
-
 import tech.mohitkumar.internappdesign.Adapters.RecyclerViewAdapter;
 import tech.mohitkumar.internappdesign.Models.CardViewData;
 import tech.mohitkumar.internappdesign.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link GroupFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link GroupFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class GroupFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -104,20 +92,7 @@ public class GroupFragment extends Fragment {
             }
         });
 
-        for(int i=0;i<5;i++) {
-            if(i%2 == 0)
-                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8","","","","","","","","");
-            else
-                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8","","","","","","","","");
-            arrayList.add(cardViewData);
-        }
 
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
-        layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        adapter = new RecyclerViewAdapter(arrayList,getActivity());
-        recyclerView.setAdapter(adapter);
 
         return view;
     }
