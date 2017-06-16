@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
+import android.support.multidex.MultiDex;
+import android.support.multidex.MultiDexApplication;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -110,16 +112,8 @@ public class MainActivity extends AppCompatActivity {
        // signInButton = (SignInButton)findViewById(sign_in);
 
 
-        layout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                progressDialog = new ProgressDialog(MainActivity.this);
-                progressDialog.setTitle("Logging in");
-                progressDialog.setMessage("Wait...");
-                progressDialog.show();
-                signIn();
-            }
-        });
+        Test test=new Test();
+        layout.setOnClickListener(test);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -221,5 +215,11 @@ public class MainActivity extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(newBase);
+        MultiDex.install(this);
     }
 }

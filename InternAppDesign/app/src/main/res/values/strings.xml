@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">InternAppDesign</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="title_1">Profile Card</string>
+    <string name="title_2">Notifications card</string>
+    <string name="title_3">My Videos Card</string>
+    <string name="title_4">Reply</string>
+
+    <string name="text_1">Demo Cards here will adjust the height and width and all the other necesary things soon!</string>
+</resources>
