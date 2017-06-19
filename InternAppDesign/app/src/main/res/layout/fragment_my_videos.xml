@@ -15,6 +15,7 @@
             android:layout_height="?actionBarSize"
             android:gravity="center"
             android:textStyle="bold"
+            android:id="@+id/my_videos"
             android:textAppearance="?android:textAppearanceLarge"
             android:text="My Videos"
             android:textAlignment="center"

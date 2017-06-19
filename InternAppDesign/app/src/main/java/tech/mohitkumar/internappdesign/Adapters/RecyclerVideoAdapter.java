@@ -1,6 +1,7 @@
 package tech.mohitkumar.internappdesign.Adapters;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
@@ -69,6 +70,8 @@ public class RecyclerVideoAdapter extends RecyclerView.Adapter<RecyclerVideoAdap
         final String[] s = {holder.list.get(position)};
 
         //videoFinished.onInteraction(position);
+
+
 
         Handler mainHandler;
         Timeline.Window window;

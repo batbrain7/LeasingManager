@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import me.anwarshahriar.calligrapher.Calligrapher;
 import tech.mohitkumar.internappdesign.Adapters.RecyclerViewAdapter;
 import tech.mohitkumar.internappdesign.Models.CardViewData;
 import tech.mohitkumar.internappdesign.R;
@@ -48,6 +49,8 @@ public class NearByFragment extends Fragment {
             arrayList.add(cardViewData);
         }
 
+        Calligrapher calligrapher = new Calligrapher(getActivity());
+        calligrapher.setFont(getActivity(),"Fonts/OpenSans-Regular.ttf",true);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);

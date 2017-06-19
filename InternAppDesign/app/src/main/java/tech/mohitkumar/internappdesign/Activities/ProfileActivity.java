@@ -4,21 +4,18 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 
+import me.anwarshahriar.calligrapher.Calligrapher;
 import tech.mohitkumar.internappdesign.Adapters.CardPagerAdapter;
 import tech.mohitkumar.internappdesign.Adapters.CardPagerFragmentAdapter;
 import tech.mohitkumar.internappdesign.Fragments.CardFragments;
-import tech.mohitkumar.internappdesign.Fragments.LatestFragment;
 import tech.mohitkumar.internappdesign.Fragments.MyVideos;
 import tech.mohitkumar.internappdesign.Fragments.Notification;
 import tech.mohitkumar.internappdesign.Fragments.ReplyFragment;
-import tech.mohitkumar.internappdesign.Models.CardItem;
+import tech.mohitkumar.internappdesign.MainActivity;
 import tech.mohitkumar.internappdesign.R;
-import tech.mohitkumar.internappdesign.ShadowTransformer;
+import tech.mohitkumar.internappdesign.CustomView.ShadowTransformer;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -38,6 +35,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         getSupportActionBar().setTitle("Profile");
+
 
         mViewPager = (ViewPager) findViewById(R.id.viewPager);
         mViewPager.setPageMargin(-50);

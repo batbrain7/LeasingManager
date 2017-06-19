@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,14 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import me.anwarshahriar.calligrapher.Calligrapher;
+import tech.mohitkumar.internappdesign.Adapters.RecyclerNotificationAdapter;
+import tech.mohitkumar.internappdesign.Adapters.RecyclerViewAdapter;
 import tech.mohitkumar.internappdesign.Interface.CardAdapter;
+import tech.mohitkumar.internappdesign.Models.CardViewData;
+import tech.mohitkumar.internappdesign.Models.NotificationItem;
 import tech.mohitkumar.internappdesign.R;
 
 /**
@@ -23,6 +31,12 @@ public class Notification extends CardFragments {
     private CardView mCardView;
     private TextView h4ugiven,h4utaken;
     private RecyclerView recyclerView;
+    RecyclerNotificationAdapter adapter;
+    RecyclerView.LayoutManager layoutManager;
+    ArrayList<NotificationItem> arrayList = new ArrayList<NotificationItem>();
+    String[] text = {"Someone hearted your video","Someone replied to your video","You just recieved a new IML"};
+    int[] images = {R.drawable.heart1,R.drawable.repl,R.drawable.down};
+    // int[] resId = {R.drawable.heart1,R.drawable.repl};
 
     public Notification() {
         // Required empty public constructor
@@ -39,8 +53,21 @@ public class Notification extends CardFragments {
                 * CardAdapter.MAX_ELEVATION_FACTOR);
         h4ugiven = (TextView) view.findViewById(R.id.h4u_given);
         h4utaken = (TextView)view.findViewById(R.id.h4u_recieved);
+        Calligrapher calligrapher = new Calligrapher(getActivity());
+        calligrapher.setFont(getActivity(),"Fonts/OpenSans-Regular.ttf",true);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_notifications);
         animateTextViews(34,h4ugiven,h4utaken,43);
+        NotificationItem item;
+        int i=0;
+        arrayList.add(new NotificationItem(text[0],R.drawable.heart1));
+        arrayList.add(new NotificationItem(text[1],R.drawable.repl));
+        arrayList.add(new NotificationItem(text[2],R.drawable.down));
+
+        layoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        adapter = new RecyclerNotificationAdapter(arrayList,getActivity());
+        recyclerView.setAdapter(adapter);
         return view;
     }
 

@@ -108,7 +108,6 @@
                     android:id="@+id/tags"
                     android:layout_gravity="end"
                     android:background="@drawable/shape_edttxt"
-
                     />
             </LinearLayout>
             <LinearLayout

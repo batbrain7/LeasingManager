@@ -1,19 +1,32 @@
 package tech.mohitkumar.internappdesign.Fragments;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import me.anwarshahriar.calligrapher.Calligrapher;
+import tech.mohitkumar.internappdesign.Activities.TextReplies;
+import tech.mohitkumar.internappdesign.Activities.UploadActivity;
 import tech.mohitkumar.internappdesign.Adapters.RecyclerViewAdapter;
+import tech.mohitkumar.internappdesign.Interface.VideoFinished;
+import tech.mohitkumar.internappdesign.MainActivity;
 import tech.mohitkumar.internappdesign.Models.CardViewData;
 import tech.mohitkumar.internappdesign.R;
 
@@ -39,7 +52,7 @@ public class LatestFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view =  inflater.inflate(R.layout.fragment_latest, container, false);
+        final View view =  inflater.inflate(R.layout.fragment_latest, container, false);
 
         for(int i=0;i<5;i++) {
             if(i%2 == 0)
@@ -48,6 +61,8 @@ public class LatestFragment extends Fragment {
                 cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8","","","","","","","","");
             arrayList.add(cardViewData);
         }
+        Calligrapher calligrapher = new Calligrapher(getActivity());
+        calligrapher.setFont(getActivity(),"Fonts/OpenSans-Regular.ttf",true);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(getActivity());

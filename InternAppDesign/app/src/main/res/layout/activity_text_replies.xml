@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee"
+    tools:context="tech.mohitkumar.internappdesign.Activities.TextReplies">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/lin_layout"
+        >
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="20dp"
+        android:inputType="text"
+        android:paddingLeft="5dp"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:layout_weight="1"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:id="@+id/comment_edtxt"
+        android:background="@drawable/progressbar"
+        android:backgroundTint="#fff"
+        android:hint="Write a comment"
+        />
+      <Button
+          android:layout_width="wrap_content"
+          android:layout_marginRight="20dp"
+          android:layout_marginTop="20dp"
+          android:layout_height="30dp"
+          android:text="Post"
+          android:id="@+id/post_cmt"
+          android:textColor="#fff"
+          android:background="@drawable/progressbar"
+          android:backgroundTint="@color/colorPrimary"
+          android:textAppearance="?android:textAppearanceSmall"
+          />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lin_layout"
+        android:id="@+id/comt_recycler"
+        >
+    </android.support.v7.widget.RecyclerView>
+</RelativeLayout>

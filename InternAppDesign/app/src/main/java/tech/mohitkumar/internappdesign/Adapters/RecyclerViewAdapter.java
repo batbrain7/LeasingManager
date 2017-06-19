@@ -1,15 +1,20 @@
 package tech.mohitkumar.internappdesign.Adapters;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Handler;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -33,7 +38,10 @@ import com.google.android.exoplayer2.util.Util;
 
 import java.util.ArrayList;
 
+import tech.mohitkumar.internappdesign.Activities.CommentsActivity;
 import tech.mohitkumar.internappdesign.Activities.FullScreenVideos;
+import tech.mohitkumar.internappdesign.Activities.TextReplies;
+import tech.mohitkumar.internappdesign.Activities.UploadActivity;
 import tech.mohitkumar.internappdesign.CustomView.CustomExoPlayerView;
 import tech.mohitkumar.internappdesign.Interface.VideoFinished;
 import tech.mohitkumar.internappdesign.Models.CardViewData;
@@ -79,6 +87,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         BandwidthMeter bandwidthMeter;
         DefaultExtractorsFactory extractorsFactory;
 
+        Typeface tf = Typeface.createFromAsset(context.getAssets(),"Fonts/OpenSans-Regular.ttf");
+
+        holder.name.setTypeface(tf);
+        holder.time.setTypeface(tf);
+        holder.views.setTypeface(tf);
+        holder.tag1.setTypeface(tf);
         shouldAutoPlay = true;
         bandwidthMeter = new DefaultBandwidthMeter();
         mediaDataSourceFactory = new DefaultDataSourceFactory(context, Util.getUserAgent(context, "mediaPlayerSample"), (TransferListener<? super DataSource>) bandwidthMeter);
@@ -129,9 +143,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(context, FullScreenVideos.class);
-                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                context.startActivity(i);
+                Intent intent = new Intent(context, CommentsActivity.class);
+                context.startActivity(intent);
             }
         });
 
@@ -146,6 +159,30 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     holder.heart.setImageResource(R.drawable.hearts);
                     b[0] = true;
                 }
+            }
+        });
+
+        holder.reply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Choose an option").setItems(R.array.options, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which) {
+                            case 0:
+                                Intent intent = new Intent(context,UploadActivity.class);
+                                context.startActivity(intent);
+                                break;
+                            case 1:
+                                Intent intent1 = new Intent(context,TextReplies.class);
+                                context.startActivity(intent1);
+                                break;
+                        }
+                    }
+                }).show();
+               // videoFinished.onInteraction(position);
             }
         });
 
@@ -175,8 +212,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             share = (ImageView) itemView.findViewById(R.id.share_btn);
             down = (ImageView) itemView.findViewById(R.id.down_btn);
             name = (TextView) itemView.findViewById(R.id.name_vid);
-            tag1 = (TextView) itemView.findViewById(R.id.tag1);
-            tag2 = (TextView) itemView.findViewById(R.id.tag2);
+            tag1 = (TextView) itemView.findViewById(R.id.tags);
             time = (TextView) itemView.findViewById(R.id.time_elapsed);
             views = (TextView) itemView.findViewById(R.id.no_views);
             comments = (TextView) itemView.findViewById(R.id.no_reply);
