@@ -1,17 +1,13 @@
 package tech.mohitkumar.internappdesign;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.DisplayMetrics;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -22,20 +18,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-
 import me.anwarshahriar.calligrapher.Calligrapher;
+import tech.mohitkumar.internappdesign.Activities.NotificationActivity;
 import tech.mohitkumar.internappdesign.Activities.ProfileActivity;
-import tech.mohitkumar.internappdesign.Activities.TextReplies;
 import tech.mohitkumar.internappdesign.Activities.UploadActivity;
 import tech.mohitkumar.internappdesign.Adapters.ViewPagerAdapter;
 import tech.mohitkumar.internappdesign.Fragments.GroupFragment;
 import tech.mohitkumar.internappdesign.Fragments.LatestFragment;
 import tech.mohitkumar.internappdesign.Fragments.NearByFragment;
-import tech.mohitkumar.internappdesign.Interface.VideoFinished;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -60,8 +51,8 @@ public class MainActivity extends AppCompatActivity
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         pagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
         pagerAdapter.AddFragments(new LatestFragment(),"LATEST");
-        pagerAdapter.AddFragments(new GroupFragment(),"GROUP");
         pagerAdapter.AddFragments(new NearByFragment(),"NEARBY");
+        pagerAdapter.AddFragments(new GroupFragment(),"GROUP");
         viewPager.setAdapter(pagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -146,14 +137,6 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            viewPager.postDelayed(new Runnable()
-            {
-                @Override
-                public void run()
-                {
-                    viewPager.setCurrentItem(1, true);
-                }
-            }, 100);
             return true;
         }
 
@@ -167,11 +150,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
+            Intent intent = new Intent(MainActivity.this, NotificationActivity.class);
+            startActivity(intent);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(intent);
-
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

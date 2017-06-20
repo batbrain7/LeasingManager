@@ -20,7 +20,7 @@
 
     <string name="text_1">Demo Cards here will adjust the height and width and all the other necesary things soon!</string>
     <string name="title_activity_reply">ReplyActivity</string>
-    
+
     <string-array name="options">
         <item>Upload a video comment</item>
         <item>Write a text Comment</item>

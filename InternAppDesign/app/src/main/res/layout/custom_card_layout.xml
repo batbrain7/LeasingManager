@@ -17,12 +17,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="5dp"
             >
             <tech.mohitkumar.internappdesign.CustomView.CustomExoPlayerView
                 android:id="@+id/player_view_card"
                 android:focusable="true"
-                android:background="#000"
+                android:background="#fff"
+                android:padding="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_weight="1"
@@ -36,9 +36,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bunny Video"
-                android:padding="5dp"
                 android:layout_weight="1"
+                android:paddingLeft="5dp"
                 android:textColor="#4747b2"
+                android:maxLength="20"
                 android:id="@+id/name_vid"
                 android:textAppearance="?android:textAppearanceLarge"
                 />
@@ -46,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/emoticon"
-                    android:padding="7dp"
+                    android:paddingRight="5dp"
                     android:src="@drawable/ic_insert_emoticon_red_500_24dp"
                     />
             </LinearLayout>
@@ -83,22 +84,27 @@
                 android:orientation="horizontal"
                 android:padding="5dp"
                 >
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_weight="1"
+                    >
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/time_elapsed"
                     android:layout_marginLeft="5dp"
                     android:text="30 min ago"
-                    android:layout_weight="1"
                     />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/no_views"
                     android:text="79 Views"
-                    android:layout_weight="1"
                     android:layout_marginLeft="20dp"
                     />
+                </LinearLayout>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -115,6 +121,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
                 >
                 <ImageView
                     android:layout_width="30dp"
@@ -134,9 +141,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
-                    android:text="H4U"
+                    android:text="IML"
                     android:id="@+id/h4u"
-                    android:textColor="#000"
+                    android:textStyle="bold"
+                    android:textColor="#FFA500"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -162,7 +170,7 @@
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:src="@drawable/shar"
+                    android:src="@drawable/share"
                     android:id="@+id/share_btn"
                     android:layout_marginLeft="20dp"
                     />

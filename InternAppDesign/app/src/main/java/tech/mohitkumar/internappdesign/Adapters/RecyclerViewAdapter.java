@@ -1,5 +1,8 @@
 package tech.mohitkumar.internappdesign.Adapters;
 
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,6 +16,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -40,6 +44,7 @@ import java.util.ArrayList;
 
 import tech.mohitkumar.internappdesign.Activities.CommentsActivity;
 import tech.mohitkumar.internappdesign.Activities.FullScreenVideos;
+import tech.mohitkumar.internappdesign.Activities.GroupClickActivity;
 import tech.mohitkumar.internappdesign.Activities.TextReplies;
 import tech.mohitkumar.internappdesign.Activities.UploadActivity;
 import tech.mohitkumar.internappdesign.CustomView.CustomExoPlayerView;
@@ -88,6 +93,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         DefaultExtractorsFactory extractorsFactory;
 
         Typeface tf = Typeface.createFromAsset(context.getAssets(),"Fonts/OpenSans-Regular.ttf");
+        Typeface tff = Typeface.createFromAsset(context.getAssets(),"Fonts/SourceSansPro-Regular.ttf");
 
         holder.name.setTypeface(tf);
         holder.time.setTypeface(tf);
@@ -107,6 +113,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         //    holder.player.setPlayWhenReady(shouldAutoPlay);
         MediaSource mediaSource = new HlsMediaSource(Uri.parse(cardViewData.getLinks()),mediaDataSourceFactory, mainHandler, null);
         holder.player.prepare(mediaSource);
+        holder.iml.setTypeface(tff);
+        holder.tag1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, GroupClickActivity.class);
+                intent.putExtra("Name",holder.tag1.getText().toString());
+                context.startActivity(intent);
+            }
+        });
 
         Log.d("INEND",Integer.toString(holder.getAdapterPosition()));
 
@@ -153,7 +168,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
                 if(b[0]) {
-                    holder.heart.setImageResource(R.drawable.heart1);
+
+                    AnimatorSet animatorSet = new AnimatorSet();
+
+                    ObjectAnimator y = ObjectAnimator.ofFloat(holder.heart,"translationY",holder.heart.getY(),-50f);
+                    ObjectAnimator x = ObjectAnimator.ofFloat(v,
+                            "translationX", v.getX(),50f);
+
+                    animatorSet.playTogether(x, y);
+                    animatorSet.setInterpolator(new LinearInterpolator());
+                    animatorSet.setDuration(500);
+                    animatorSet.start();
+                    holder.heart.setImageResource(R.drawable.heart3);
                     b[0] = false;
                 } else if(!b[0]) {
                     holder.heart.setImageResource(R.drawable.hearts);
@@ -196,7 +222,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
         ImageView heart,reply,share,down;
-        TextView name,tag1,tag2,time,views,comments,h4u,likes;
+        TextView name,tag1,iml,time,views,comments,h4u,likes;
         CustomExoPlayerView customExoPlayerView;
         SimpleExoPlayer player;
 
@@ -213,6 +239,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             down = (ImageView) itemView.findViewById(R.id.down_btn);
             name = (TextView) itemView.findViewById(R.id.name_vid);
             tag1 = (TextView) itemView.findViewById(R.id.tags);
+            iml = (TextView) itemView.findViewById(R.id.h4u);
             time = (TextView) itemView.findViewById(R.id.time_elapsed);
             views = (TextView) itemView.findViewById(R.id.no_views);
             comments = (TextView) itemView.findViewById(R.id.no_reply);

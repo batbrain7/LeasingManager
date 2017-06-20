@@ -49,7 +49,7 @@ public class MyVideos extends CardFragments {
                 * CardAdapter.MAX_ELEVATION_FACTOR);
         NotificationItem item;
         int i=0;
-        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"fonts/OpenSans-Regular.ttf");
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"Fonts/OpenSans-Regular.ttf");
         TextView textView = (TextView) view.findViewById(R.id.my_videos);
         textView.setTypeface(tf);
         arrayList.add(new NotificationItem(text[0],R.drawable.ic_insert_emoticon_red_500_24dp));

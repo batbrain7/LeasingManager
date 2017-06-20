@@ -7,11 +7,53 @@
     android:background="#EC5745"
     tools:context="tech.mohitkumar.internappdesign.Activities.UploadActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter the name of the video"
+            android:id="@+id/name_video"
+            />
+    </android.support.design.widget.TextInputLayout>
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Enter the name of the Group"
+                android:id="@+id/name_group"
+                />
+        </android.support.design.widget.TextInputLayout>
     <is.arontibo.library.ElasticDownloadView
         android:id="@+id/elastic_download_view"
         android:layout_width="wrap_content"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:background="#EC5745"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"/>
+    </LinearLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:id="@+id/upload_button"
+        android:src="@drawable/ic_cloud_upload_white_24dp"
+        />
 </RelativeLayout>

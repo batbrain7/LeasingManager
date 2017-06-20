@@ -2,6 +2,7 @@ package tech.mohitkumar.internappdesign.Activities;
 
 import android.content.Intent;
 import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ public class UploadActivity extends AppCompatActivity {
 
     public static final int VIDEO_CAPTURE_REQUEST = 1;
     ElasticDownloadView elasticDownloadView;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,17 @@ public class UploadActivity extends AppCompatActivity {
         Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
         startActivityForResult(intent,VIDEO_CAPTURE_REQUEST);
 
+        fab = (FloatingActionButton) findViewById(R.id.upload_button);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                elasticDownloadView.setVisibility(View.VISIBLE);
+                elasticDownloadView.startIntro();
+                elasticDownloadView.setProgress(50);
+                elasticDownloadView.success();
+            }
+        });
+
     }
 
     @Override
@@ -33,10 +46,7 @@ public class UploadActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode == VIDEO_CAPTURE_REQUEST && resultCode == RESULT_OK && data!=null) {
-            elasticDownloadView.setVisibility(View.VISIBLE);
-            elasticDownloadView.startIntro();
-            elasticDownloadView.setProgress(10);
-            elasticDownloadView.success();
+
             //elasticDownloadView.fail();
         }
     }

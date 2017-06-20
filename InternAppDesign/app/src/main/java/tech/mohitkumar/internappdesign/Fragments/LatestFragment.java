@@ -35,6 +35,7 @@ import tech.mohitkumar.internappdesign.R;
  * Activities that contain this fragment must implement the
  * to handle interaction events.
  */
+
 public class LatestFragment extends Fragment {
 
     RecyclerView recyclerView;
@@ -70,6 +71,18 @@ public class LatestFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         adapter = new RecyclerViewAdapter(arrayList,getActivity());
         recyclerView.setAdapter(adapter);
+
+        adapter.setVideoFinished(new VideoFinished() {
+            @Override
+            public void onVideoFinished(int position) {
+
+            }
+
+            @Override
+            public void onInteraction(int position) {
+
+            }
+        });
         return view;
     }
 

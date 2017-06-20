@@ -1,6 +1,7 @@
 package tech.mohitkumar.internappdesign.Fragments;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -55,6 +56,15 @@ public class Notification extends CardFragments {
         h4utaken = (TextView)view.findViewById(R.id.h4u_recieved);
         Calligrapher calligrapher = new Calligrapher(getActivity());
         calligrapher.setFont(getActivity(),"Fonts/OpenSans-Regular.ttf",true);
+
+        Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"Fonts/DroidSans.ttf");
+        TextView textView = (TextView) view.findViewById(R.id.iml_given);
+        TextView textView1 = (TextView) view.findViewById(R.id.iml_recieved);
+        textView.setTypeface(tf);
+        textView1.setTypeface(tf);
+        h4ugiven.setTypeface(tf);
+        h4utaken.setTypeface(tf);
+
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_notifications);
         animateTextViews(34,h4ugiven,h4utaken,43);
         NotificationItem item;
