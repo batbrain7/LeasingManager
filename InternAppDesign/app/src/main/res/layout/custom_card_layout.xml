@@ -12,11 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
+        android:id="@+id/card_view_card"
         >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical"
+            android:gravity="top"
             >
             <tech.mohitkumar.internappdesign.CustomView.CustomExoPlayerView
                 android:id="@+id/player_view_card"
@@ -118,17 +120,13 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
-                android:paddingLeft="5dp"
+                android:gravity="bottom"
+                android:layout_marginLeft="35dp"
                 android:paddingBottom="5dp"
                 >
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:id="@+id/lik_btn"
-                    android:src="@drawable/hearts"
-                    />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -140,7 +138,9 @@
                     android:layout_marginLeft="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="20dp"
+                    android:textSize="15dp"
+                    android:padding="5dp"
+                    android:background="@drawable/circular_black_button"
                     android:text="IML"
                     android:id="@+id/h4u"
                     android:textStyle="bold"
@@ -189,6 +189,15 @@
                     />
             </LinearLayout>
         </LinearLayout>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/lik_btn"
+            android:paddingLeft="5dp"
+            android:paddingBottom="5dp"
+            android:layout_gravity="bottom"
+            android:src="@drawable/hearts"
+            />
     </android.support.v7.widget.CardView>
 
 </LinearLayout>

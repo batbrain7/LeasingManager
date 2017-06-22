@@ -4,51 +4,47 @@ import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.Button;
+
+import java.util.ArrayList;
 
 import tech.mohitkumar.internappdesign.Adapters.CardPagerAdapter;
 import tech.mohitkumar.internappdesign.Adapters.CardPagerFragmentAdapter;
+import tech.mohitkumar.internappdesign.Adapters.RecyclerNotificationAdapter;
 import tech.mohitkumar.internappdesign.CustomView.ShadowTransformer;
 import tech.mohitkumar.internappdesign.Fragments.CardFragments;
 import tech.mohitkumar.internappdesign.Fragments.MyVideos;
 import tech.mohitkumar.internappdesign.Fragments.Notification;
 import tech.mohitkumar.internappdesign.Fragments.ReplyFragment;
+import tech.mohitkumar.internappdesign.Models.NotificationItem;
 import tech.mohitkumar.internappdesign.R;
 
 import static tech.mohitkumar.internappdesign.Activities.ProfileActivity.dpToPixels;
 
 public class NotificationActivity extends AppCompatActivity {
 
-    private Button mButton;
-    private ViewPager mViewPager;
+    private RecyclerView recyclerView;
+    RecyclerNotificationAdapter adapter;
+    RecyclerView.LayoutManager layoutManager;
+    ArrayList<NotificationItem> arrayList = new ArrayList<NotificationItem>();
+    String[] text = {"Someone hearted your video","Someone replied to your video","You just recieved a new IML"};
+    int[] images = {R.drawable.heart1,R.drawable.repl,R.drawable.down};
 
-    private CardPagerAdapter mCardAdapter;
-    private ShadowTransformer mCardShadowTransformer;
-    private CardPagerFragmentAdapter mFragmentCardAdapter;
-    private ShadowTransformer mFragmentCardShadowTransformer;
-
-    private boolean mShowingFragments = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notification);
+        arrayList.add(new NotificationItem(text[0],R.drawable.heart1));
+        arrayList.add(new NotificationItem(text[1],R.drawable.repl));
+        arrayList.add(new NotificationItem(text[2],R.drawable.down));
 
-
-        mViewPager = (ViewPager) findViewById(R.id.viewPager);
-        mViewPager.setPageMargin(-50);
-
-        mFragmentCardAdapter = new CardPagerFragmentAdapter(getSupportFragmentManager(),
-                dpToPixels(2, this));
-
-        mFragmentCardAdapter.addCardFragment(new Notification());
-        mFragmentCardShadowTransformer = new ShadowTransformer(mViewPager, mFragmentCardAdapter);
-        mFragmentCardShadowTransformer.enableScaling();
-        mViewPager.setAdapter(mFragmentCardAdapter);
-        mViewPager.setPageTransformer(false, mFragmentCardShadowTransformer);
-        mViewPager.setOffscreenPageLimit(3);
-    }
-
-    public static float dpToPixels(int dp, Context context) {
-        return dp * (context.getResources().getDisplayMetrics().density);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        layoutManager = new LinearLayoutManager(NotificationActivity.this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        adapter = new RecyclerNotificationAdapter(arrayList,NotificationActivity.this);
+        recyclerView.setAdapter(adapter);
     }
 }

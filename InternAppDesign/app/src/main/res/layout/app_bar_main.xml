@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="?actionBarSize"
             android:id="@+id/tab_layout"
-            app:tabIndicatorColor="#ff0"
+            app:tabIndicatorColor="#ff00"
             app:theme="@style/AppTheme.AppBarOverlay"
             android:background="@color/colorPrimary">
         </android.support.design.widget.TabLayout>

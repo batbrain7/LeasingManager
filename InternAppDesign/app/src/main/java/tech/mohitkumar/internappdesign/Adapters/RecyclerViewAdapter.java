@@ -10,12 +10,16 @@ import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
@@ -163,23 +167,58 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         });
 
+        final Animation anm = AnimationUtils.loadAnimation(context,R.anim.transalte_scale);
+        final Animation anmback = AnimationUtils.loadAnimation(context,R.anim.translate_back);
+
+//        logtext.startAnimation(anm);
         final boolean[] b = {true};
         holder.heart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(b[0]) {
 
-                    AnimatorSet animatorSet = new AnimatorSet();
+                    holder.heart.startAnimation(anm);
 
-                    ObjectAnimator y = ObjectAnimator.ofFloat(holder.heart,"translationY",holder.heart.getY(),-50f);
-                    ObjectAnimator x = ObjectAnimator.ofFloat(v,
-                            "translationX", v.getX(),50f);
+                    int cx = holder.itemView.getWidth() / 2;
+                    int cy = holder.itemView.getHeight() / 2;
 
-                    animatorSet.playTogether(x, y);
-                    animatorSet.setInterpolator(new LinearInterpolator());
-                    animatorSet.setDuration(500);
-                    animatorSet.start();
+                    float finalRadius = (float) Math.hypot(cx, cy);
+
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                        Animator anim =
+                                ViewAnimationUtils.createCircularReveal(holder.itemView, cx, cy, 0, finalRadius);
+                        holder.itemView.setVisibility(View.VISIBLE);
+                      //  anim.start();
+                    }
+
+
+
+//
+//                    //holder.heart.bringToFront();
+//                    ObjectAnimator y = ObjectAnimator.ofFloat(holder.heart,"y",holder.heart.getY(),-0.5f);
+//                    ObjectAnimator x = ObjectAnimator.ofFloat(v, "x", v.getX(),200f);
+//
+//                    animatorSet.playTogether(x, y);
+//                    animatorSet.setInterpolator(new LinearInterpolator());
+//                    animatorSet.setDuration(500);
+//                    animatorSet.start();
                     holder.heart.setImageResource(R.drawable.heart3);
+
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            holder.heart.startAnimation(anmback);
+                        }
+                    },700);
+
+//                    ObjectAnimator y1 = ObjectAnimator.ofFloat(holder.heart,"translationY",holder.heart.getY(),250f);
+//                    ObjectAnimator x1 = ObjectAnimator.ofFloat(v,
+//                            "translationX", v.getX(),-250f);
+//                    animatorSet.playTogether(x1, y1);
+//                    animatorSet.setInterpolator(new LinearInterpolator());
+//                    animatorSet.setDuration(500);
+//                    animatorSet.start();
                     b[0] = false;
                 } else if(!b[0]) {
                     holder.heart.setImageResource(R.drawable.hearts);
@@ -225,6 +264,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         TextView name,tag1,iml,time,views,comments,h4u,likes;
         CustomExoPlayerView customExoPlayerView;
         SimpleExoPlayer player;
+        CardView cardView;
 
         ArrayList<CardViewData> arrayList;
         Context context;
@@ -233,6 +273,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             super(itemView);
             this.context = context;
             this.arrayList = arrayList;
+            cardView = (CardView) itemView.findViewById(R.id.card_view_card);
             heart = (ImageView) itemView.findViewById(R.id.lik_btn);
             reply = (ImageView) itemView.findViewById(R.id.reply);
             share = (ImageView) itemView.findViewById(R.id.share_btn);

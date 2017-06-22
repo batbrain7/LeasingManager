@@ -14,7 +14,7 @@ import tech.mohitkumar.internappdesign.R;
 public class UploadActivity extends AppCompatActivity {
 
     public static final int VIDEO_CAPTURE_REQUEST = 1;
-    ElasticDownloadView elasticDownloadView;
+//       ElasticDownloadView elasticDownloadView;
     FloatingActionButton fab;
 
     @Override
@@ -22,7 +22,7 @@ public class UploadActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
 
-        elasticDownloadView = (ElasticDownloadView) findViewById(R.id.elastic_download_view);
+    //    elasticDownloadView = (ElasticDownloadView) findViewById(R.id.elastic_download_view);
         Calligrapher calligrapher = new Calligrapher(this);
         calligrapher.setFont(this, "Fonts/OpenSans-Regular.ttf", true);
         Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
@@ -32,13 +32,9 @@ public class UploadActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                elasticDownloadView.setVisibility(View.VISIBLE);
-                elasticDownloadView.startIntro();
-                elasticDownloadView.setProgress(50);
-                elasticDownloadView.success();
+
             }
         });
-
     }
 
     @Override

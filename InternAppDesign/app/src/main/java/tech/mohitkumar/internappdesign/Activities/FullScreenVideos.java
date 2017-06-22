@@ -26,11 +26,11 @@ public class FullScreenVideos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_screen_videos);
 
-        arraylist.add("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8");
-        arraylist.add("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8");
-        arraylist.add("https://d2zihajmogu5jn.cloudfront.net/bipbop-advanced/bipbop_16x9_variant.m3u8");
-        arraylist.add("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8");
-        arraylist.add("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8");
+        arraylist.add("https://s3.ap-south-1.amazonaws.com/yoblunthlsvideo/test/yobluntvideo.m3u8");
+        arraylist.add("https://s3.ap-south-1.amazonaws.com/yoblunthlsvideo/test/yobluntvideo2.m3u8");
+        arraylist.add("https://s3.ap-south-1.amazonaws.com/yoblunthlsvideo/test/yobluntvideo3.m3u8");
+        arraylist.add("https://s3.ap-south-1.amazonaws.com/yoblunthlsvideo/test/yobluntvideo4.m3u8");
+        arraylist.add("https://s3.ap-south-1.amazonaws.com/yoblunthlsvideo/test/yobluntvideo5.m3u8");
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view1);
         layoutManager = new LinearLayoutManager(FullScreenVideos.this);
@@ -72,13 +72,14 @@ public class FullScreenVideos extends AppCompatActivity {
               //  CustomExoPlayerView customExoPlayerView1 = (CustomExoPlayerView) firstItemView.findViewById(R.id.player_view);
 
                 if (top) {
-                    double perc2 = Math.abs(lastItemView.getY()) / lastItemView.getHeight();
-                    Log.d("PERC2",Double.toString(perc2));
+                //    double perc2 = Math.abs(lastItemView.getY()) / lastItemView.getHeight();
+                  //  Log.d("PERC2",Double.toString(perc2));
                   //  if(perc2 > 0.3) {
 
                     //    customExoPlayerView.controller.dispatchKeyEvent(KeyEvent.KEYCODE_MEDIA_PAUSE);
-                        Log.d("P1Called","PAUSED");
-                        int index = layoutManager.findFirstVisibleItemPosition();
+                      //  Log.d("P1Called","PAUSED");
+                    int index = layoutManager.findFirstVisibleItemPosition();
+
                         recyclerView.smoothScrollToPosition(index);
                     //    customExoPlayerView1.controller.dispatchKeyEvent(KeyEvent.KEYCODE_MEDIA_PLAY);
                         Log.d("P1Called","PLAYING");
@@ -90,8 +91,8 @@ public class FullScreenVideos extends AppCompatActivity {
                   //  if(perc1 > 0.3) {
                      //   customExoPlayerView1.controller.dispatchKeyEvent(KeyEvent.KEYCODE_MEDIA_PAUSE);
                         Log.d("P2Called","PAUSED");
-                        int index = layoutManager.findLastVisibleItemPosition();
-                        recyclerView.smoothScrollToPosition(index);
+                    int index = layoutManager.findLastVisibleItemPosition();
+                    recyclerView.smoothScrollToPosition(index);
                      //   customExoPlayerView.controller.dispatchKeyEvent(KeyEvent.KEYCODE_MEDIA_PLAY);
                         Log.d("P2Called","PLAYING");
                    // }
@@ -112,7 +113,10 @@ public class FullScreenVideos extends AppCompatActivity {
 
             }
         });
+    }
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

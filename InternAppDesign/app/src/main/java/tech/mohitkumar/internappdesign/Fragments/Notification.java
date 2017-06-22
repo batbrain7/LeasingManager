@@ -31,10 +31,6 @@ public class Notification extends CardFragments {
 
     private CardView mCardView;
     private TextView h4ugiven,h4utaken;
-    private RecyclerView recyclerView;
-    RecyclerNotificationAdapter adapter;
-    RecyclerView.LayoutManager layoutManager;
-    ArrayList<NotificationItem> arrayList = new ArrayList<NotificationItem>();
     String[] text = {"Someone hearted your video","Someone replied to your video","You just recieved a new IML"};
     int[] images = {R.drawable.heart1,R.drawable.repl,R.drawable.down};
     // int[] resId = {R.drawable.heart1,R.drawable.repl};
@@ -64,20 +60,7 @@ public class Notification extends CardFragments {
         textView1.setTypeface(tf);
         h4ugiven.setTypeface(tf);
         h4utaken.setTypeface(tf);
-
-        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_notifications);
         animateTextViews(34,h4ugiven,h4utaken,43);
-        NotificationItem item;
-        int i=0;
-        arrayList.add(new NotificationItem(text[0],R.drawable.heart1));
-        arrayList.add(new NotificationItem(text[1],R.drawable.repl));
-        arrayList.add(new NotificationItem(text[2],R.drawable.down));
-
-        layoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        adapter = new RecyclerNotificationAdapter(arrayList,getActivity());
-        recyclerView.setAdapter(adapter);
         return view;
     }
 

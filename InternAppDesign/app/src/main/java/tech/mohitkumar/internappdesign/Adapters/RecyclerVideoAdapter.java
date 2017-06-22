@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -130,22 +131,22 @@ public class RecyclerVideoAdapter extends RecyclerView.Adapter<RecyclerVideoAdap
             }
         });
 
-//        holder.itemView.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
-//            @Override
-//            public void onViewAttachedToWindow(View v) {
-//
-//                holder.customExoPlayerView.getMeasuredHeight();
-//                Log.d("HEIGHT",Integer.toString(holder.customExoPlayerView.getMeasuredHeight()));
-//                holder.player.setPlayWhenReady(shouldAutoPlay);
-//            }
-//
-//            @Override
-//            public void onViewDetachedFromWindow(View v) {
-//                CustomExoPlayerView cust = (CustomExoPlayerView) v.findViewById(R.id.player_view);
-//                cust.controller.dispatchKeyEvent(KeyEvent.KEYCODE_MEDIA_CLOSE);
-//                Log.d("Updated the button","P");
-//            }
-//        });
+        holder.itemView.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() {
+            @Override
+            public void onViewAttachedToWindow(View v) {
+
+                holder.customExoPlayerView.getMeasuredHeight();
+                Log.d("HEIGHT",Integer.toString(holder.customExoPlayerView.getMeasuredHeight()));
+                holder.player.setPlayWhenReady(shouldAutoPlay);
+            }
+
+            @Override
+            public void onViewDetachedFromWindow(View v) {
+                CustomExoPlayerView cust = (CustomExoPlayerView) v.findViewById(R.id.player_view);
+                cust.controller.dispatchKeyEvent(KeyEvent.KEYCODE_MEDIA_PAUSE);
+                Log.d("Updated the button","P");
+            }
+        });
     }
 
     @Override

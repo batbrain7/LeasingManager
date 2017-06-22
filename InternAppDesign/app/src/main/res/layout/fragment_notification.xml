@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Notification"
+            android:text="I am Listening (IML)"
             android:textStyle="bold"
             android:padding="10dp"
             android:id="@+id/notif"
@@ -39,27 +39,16 @@
                 android:gravity="center"
                 android:layout_weight="1"
                 />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="#50c878"
-                android:layout_weight="1"
-                android:id="@+id/iml_recieved"
-                android:textSize="18dp"
-                android:text="IML Recieved"
-                />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
             android:layout_marginTop="70dp"
             android:id="@+id/no_lin_layout"
             >
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="69"
                 android:id="@+id/h4u_given"
@@ -68,14 +57,18 @@
                 android:textColor="#e0115f"
                 android:layout_weight="1"
                 />
-            <View
-                android:layout_width="2dp"
-                android:layout_height="120dp"
-                android:background="#000"
-                >
-            </View>
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#50c878"
+                android:layout_weight="1"
+                android:id="@+id/iml_recieved"
+                android:textSize="18dp"
+                android:text="IML Recieved"
+                />
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="100dp"
                 android:id="@+id/h4u_recieved"
@@ -85,13 +78,6 @@
                 android:text="96"
                 />
         </LinearLayout>
-            <android.support.v7.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/recycler_notifications"
-                android:layout_below="@id/no_lin_layout"
-                >
-            </android.support.v7.widget.RecyclerView>
         </RelativeLayout>
 
 
