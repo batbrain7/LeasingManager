@@ -174,51 +174,58 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         final boolean[] b = {true};
         holder.heart.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
                 if(b[0]) {
 
+                    holder.heart.startAnimation(anm);;
+
+//                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+//                        Animator anim =
+//                                ViewAnimationUtils.createCircularReveal(holder.itemView, cx, cy, 0, finalRadius);
+//                        holder.itemView.setVisibility(View.VISIBLE);
+//                      //  anim.start();
+//                    }]
                     holder.heart.startAnimation(anm);
-
-                    int cx = holder.itemView.getWidth() / 2;
-                    int cy = holder.itemView.getHeight() / 2;
-
-                    float finalRadius = (float) Math.hypot(cx, cy);
-
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-                        Animator anim =
-                                ViewAnimationUtils.createCircularReveal(holder.itemView, cx, cy, 0, finalRadius);
-                        holder.itemView.setVisibility(View.VISIBLE);
-                      //  anim.start();
-                    }
-
-
-
 //
 //                    //holder.heart.bringToFront();
-//                    ObjectAnimator y = ObjectAnimator.ofFloat(holder.heart,"y",holder.heart.getY(),-0.5f);
-//                    ObjectAnimator x = ObjectAnimator.ofFloat(v, "x", v.getX(),200f);
+
+//                    final AnimatorSet animatorSet = new AnimatorSet();
 //
-//                    animatorSet.playTogether(x, y);
+//                    ObjectAnimator y = ObjectAnimator.ofFloat(holder.heart,"translationY",holder.heart.getY(),-5f);
+//                    ObjectAnimator x = ObjectAnimator.ofFloat(v, "translationX", v.getX(),5f);
+//                    ObjectAnimator scalex = ObjectAnimator.ofFloat(holder.heart,"scaleX",2f);
+//                    ObjectAnimator scaley = ObjectAnimator.ofFloat(holder.heart,"scaleY",2f);
+//
+//                    animatorSet.playTogether(x, y,scalex,scaley);
 //                    animatorSet.setInterpolator(new LinearInterpolator());
 //                    animatorSet.setDuration(500);
 //                    animatorSet.start();
                     holder.heart.setImageResource(R.drawable.heart3);
+//                    Handler handler = new Handler();
+//                    handler.postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            holder.heart.startAnimation(anmback);
+//                        }
+//                    },700);
 
-                    Handler handler = new Handler();
-                    handler.postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            holder.heart.startAnimation(anmback);
-                        }
-                    },700);
+//                    final AnimatorSet animatorSet1 = new AnimatorSet();
+//                    Handler handler = new Handler();
+//                    handler.postDelayed(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            ObjectAnimator y1 = ObjectAnimator.ofFloat(holder.heart,"translationY",holder.heart.getY(),5f);
+//                            ObjectAnimator x1 = ObjectAnimator.ofFloat(v,
+//                                    "translationX", v.getX(),-5f);
+//                            ObjectAnimator scalex1 = ObjectAnimator.ofFloat(holder.heart,"scaleX",0.2f);
+//                            ObjectAnimator scaley1 = ObjectAnimator.ofFloat(holder.heart,"scaleY",0.2f);
+//                            animatorSet1.playTogether(x1, y1,scalex1,scaley1);
+//                            animatorSet1.setInterpolator(new LinearInterpolator());
+//                            animatorSet1.setDuration(500);
+//                            animatorSet1.start();
+//                        }
+//                    },400);
 
-//                    ObjectAnimator y1 = ObjectAnimator.ofFloat(holder.heart,"translationY",holder.heart.getY(),250f);
-//                    ObjectAnimator x1 = ObjectAnimator.ofFloat(v,
-//                            "translationX", v.getX(),-250f);
-//                    animatorSet.playTogether(x1, y1);
-//                    animatorSet.setInterpolator(new LinearInterpolator());
-//                    animatorSet.setDuration(500);
-//                    animatorSet.start();
                     b[0] = false;
                 } else if(!b[0]) {
                     holder.heart.setImageResource(R.drawable.hearts);
@@ -241,6 +248,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                                 context.startActivity(intent);
                                 break;
                             case 1:
+                                Intent intent2 = new Intent(context,UploadActivity.class);
+                                intent2.putExtra("title","Private Reply");
+                                context.startActivity(intent2);
+                                break;
+                            case 2:
                                 Intent intent1 = new Intent(context,TextReplies.class);
                                 context.startActivity(intent1);
                                 break;

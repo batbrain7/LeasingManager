@@ -22,7 +22,8 @@
     <string name="title_activity_reply">ReplyActivity</string>
 
     <string-array name="options">
-        <item>Upload a video comment</item>
+        <item>Upload a public video comment</item>
+        <item>Upload a private video comment</item>
         <item>Write a text Comment</item>
     </string-array>
 </resources>

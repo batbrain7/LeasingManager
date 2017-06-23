@@ -1,0 +1,142 @@
+[
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_menu_new.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/ic_menu_new.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_home_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_home_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_ce_none.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_ce_none.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_back_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_back_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_ce_aqua.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_ce_aqua.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_autofocus_b.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_autofocus_b.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/stub.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/stub.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_autofocus_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_autofocus_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_slarge_b.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_slarge_b.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_effects_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_effects_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_build_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_build_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_menu_delete.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/ic_menu_delete.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_ssmall_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_ssmall_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_options_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_options_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_effects_b.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_effects_b.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_ce_solarize.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_ce_solarize.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_ce_sepia.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_ce_sepia.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_slarge_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_slarge_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_smed_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_smed_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_ce_mono.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_ce_mono.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_onionskin_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_onionskin_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_onionskin_b.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_onionskin_b.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_create_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_create_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_ce_negative.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_ce_negative.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_share_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_share_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_launcher.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_addimage_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_addimage_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_smed_b.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_smed_b.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_clear_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_clear_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_menu_share.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/ic_menu_share.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_next_g.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_next_g.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_delete_r.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_delete_r.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_ce_posterize.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_ce_posterize.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_ssmall_b.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_ssmall_b.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-hdpi/tab_options_b.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-hdpi/tab_options_b.png"
+    }
+]

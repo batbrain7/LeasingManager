@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/anim/anim_slide_left_out.xml",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/anim/anim_slide_left_out.xml"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/anim/anim_slide_right_in.xml",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/anim/anim_slide_right_in.xml"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/anim/anim_slide_left_in.xml",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/anim/anim_slide_left_in.xml"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/anim/anim_slide_right_out.xml",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/anim/anim_slide_right_out.xml"
+    }
+]

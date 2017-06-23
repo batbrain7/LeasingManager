@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-ldpi/ic_menu_share.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-ldpi/ic_menu_share.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-ldpi/ic_launcher.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-ldpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-ldpi/ic_menu_delete.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-ldpi/ic_menu_delete.png"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/drawable-ldpi/ic_menu_new.png",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/drawable-ldpi/ic_menu_new.png"
+    }
+]

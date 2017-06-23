@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/menu/menu_home.xml",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/menu/menu_home.xml"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/menu/menu_browse.xml",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/menu/menu_browse.xml"
+    },
+    {
+        "merged": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/build/intermediates/res/merged/debug/menu/menu_gather_frames.xml",
+        "source": "/Users/mohitkumar/Documents/AndroidStudioProjects/InternApp/Android-GifStitch-master/app/src/main/res/menu/menu_gather_frames.xml"
+    }
+]
