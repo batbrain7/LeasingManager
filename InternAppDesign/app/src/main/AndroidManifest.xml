@@ -15,6 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
+            android:allowEmbedded="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -34,7 +35,10 @@
             android:name=".Activities.UploadActivity"
             android:label="Upload Video" />
         <activity android:name=".Activities.NotificationActivity" />
-        <activity android:name=".Activities.GroupClickActivity"></activity>
+        <activity android:name=".Activities.GroupClickActivity" />
+        <activity android:name=".Activities.DetailsActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:label=""></activity>
     </application>
 
 </manifest>

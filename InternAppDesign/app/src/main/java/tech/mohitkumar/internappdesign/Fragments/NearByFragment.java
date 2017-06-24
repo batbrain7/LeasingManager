@@ -35,6 +35,8 @@ public class NearByFragment extends Fragment {
         // Required empty public constructor
     }
 
+    String[] name = {"Frustrated about modi ji's demonetization","I'm an engineer from Amity Noida and i'm sick and tired of being down valued at placements.","I confess-\"Fought for my Partner- Lesbian partner","Izzat chaahata thaa…","Guilty Ashamed! Just wanted to pass the exam."};
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

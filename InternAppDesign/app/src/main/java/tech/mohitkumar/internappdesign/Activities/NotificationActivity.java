@@ -38,7 +38,7 @@ public class NotificationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_notification);
         arrayList.add(new NotificationItem(text[0],R.drawable.heart1));
         arrayList.add(new NotificationItem(text[1],R.drawable.repl));
-        arrayList.add(new NotificationItem(text[2],R.drawable.down));
+        arrayList.add(new NotificationItem(text[2],R.drawable.circular_black_button));
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(NotificationActivity.this);

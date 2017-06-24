@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="#fff"
     android:layout_height="match_parent"
     tools:context="tech.mohitkumar.internappdesign.Activities.UploadActivity">
 
@@ -11,20 +12,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        >
-        <EditText
+        <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tell us about the video (Can be just name)"
-            android:id="@+id/name_video"
-            />
-    </android.support.design.widget.TextInputLayout>
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tell us about the video (Can be just name)"
+                android:id="@+id/name_video"
+                />
+        </android.support.design.widget.TextInputLayout>
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,6 +39,25 @@
                 android:id="@+id/name_group"
                 />
         </android.support.design.widget.TextInputLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:background="@drawable/upload_button"
+            android:id="@+id/selection"
+            android:layout_margin="20dp"
+            android:layout_height="?actionBarSize"
+            android:text="Slide up to choose an emotion"
+            android:textAlignment="center"
+            android:paddingLeft="10dp"
+            android:gravity="center_vertical"
+            android:textColor="#987316"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/emotion"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:layout_margin="20dp"
+            />
         <com.github.jlmd.animatedcircleloadingview.AnimatedCircleLoadingView
             android:id="@+id/circle_loading_view"
             android:layout_width="match_parent"
@@ -58,23 +78,13 @@
         />
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="300dp"
         app:layout_behavior="@string/bottom_sheet_behavior"
         android:id="@+id/bottom_sheet"
         app:behavior_hideable="true"
-        app:behavior_peekHeight="50dp"
+        app:behavior_peekHeight="0dp"
         android:background="#fff"
         >
-        <TextView
-            android:layout_width="match_parent"
-            android:background="#efcf6e"
-            android:id="@+id/selection"
-            android:layout_height="?actionBarSize"
-            android:text="Slide up to choose an emotion"
-            android:paddingLeft="10dp"
-            android:gravity="center_vertical"
-            android:textColor="#987316"
-            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,12 +98,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp"
-                android:id="@+id/afraid_emoji"
                 >
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/afraid"
+                    android:id="@+id/afraid_emoji"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -107,12 +117,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="10dp"
-                android:id="@+id/frusted_emoji"
                 >
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/frusted2"
+                    android:id="@+id/frusted_emoji"
                     />
                 <TextView
                     android:layout_width="wrap_content"
@@ -122,43 +132,43 @@
                     />
             </LinearLayout>
             <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp"
-                android:id="@+id/depressed_emoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp"
                 >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/depresed"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Depressed"
-                android:layout_gravity="center_horizontal"
-                />
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/depresed"
+                    android:id="@+id/depressed_emoji"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Depressed"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
             <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="vertical"
-                android:id="@+id/happy_emoji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical"
                 >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/happy"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:text="Happy"
-                />
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/happy"
+                    android:id="@+id/happy_emoji"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Happy"
+                    />
+            </LinearLayout>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -167,63 +177,63 @@
             android:layout_below="@+id/lin_layout"
             android:gravity="center_horizontal"
             >
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:id="@+id/confused_emoji"
-            >
-            <ImageView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/confused"
-                />
-            <TextView
+                android:orientation="vertical"
+                android:padding="10dp"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/confused"
+                    android:id="@+id/confused_emoji"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Confused"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Confused"
-                android:layout_gravity="center_horizontal"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp"
-            android:id="@+id/excited_emoji"
-            >
-            <ImageView
+                android:orientation="vertical"
+                android:padding="10dp"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/excited_emoji"
+                    android:src="@drawable/excited"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Excited"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/excited"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Excited"
-                android:layout_gravity="center_horizontal"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="vertical"
-            android:id="@+id/sad_emoji"
-            >
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/sad"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Sad"
-                android:layout_gravity="center_horizontal"
-                />
-        </LinearLayout>
+                android:padding="10dp"
+                android:orientation="vertical"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/sad"
+                    android:id="@+id/sad_emoji"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sad"
+                    android:layout_gravity="center_horizontal"
+                    />
+            </LinearLayout>
         </LinearLayout>
     </RelativeLayout>
 </android.support.design.widget.CoordinatorLayout>

@@ -12,7 +12,12 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
 import java.util.ArrayList;
+import java.util.List;
+
 import tech.mohitkumar.internappdesign.Adapters.RecyclerViewAdapter;
 import tech.mohitkumar.internappdesign.Models.CardViewData;
 import tech.mohitkumar.internappdesign.R;
@@ -29,24 +34,11 @@ public class GroupFragment extends Fragment {
     private String mParam2;
     public static final String DEBUG_TAG = "DEBUG_TAG";
 
-    RecyclerView recyclerView;
-    RecyclerViewAdapter adapter;
-    RecyclerView.LayoutManager layoutManager;
-    CardViewData cardViewData;
-    ArrayList<CardViewData> arrayList = new ArrayList<CardViewData>();
+    ListView listView;
     public GroupFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment GroupFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static GroupFragment newInstance(String param1, String param2) {
         GroupFragment fragment = new GroupFragment();
         Bundle args = new Bundle();
@@ -91,6 +83,20 @@ public class GroupFragment extends Fragment {
                 return gestureDetector.onTouchEvent(event);
             }
         });
+
+        listView = (ListView) view.findViewById(R.id.list_pop_groups);
+        List<String> your_array_list = new ArrayList<String>();
+        your_array_list.add("Social");
+        your_array_list.add("Politics");
+        your_array_list.add("IIT Delhi boys");
+        your_array_list.add("Delhi Girls");
+        your_array_list.add("Modi");
+        your_array_list.add("Love");
+        your_array_list.add("Indian");
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                getActivity(), android.R.layout.simple_list_item_1, your_array_list );
+
+        listView.setAdapter(arrayAdapter);
 
         return view;
     }

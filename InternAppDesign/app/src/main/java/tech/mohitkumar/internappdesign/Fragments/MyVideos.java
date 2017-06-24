@@ -52,9 +52,9 @@ public class MyVideos extends CardFragments {
         Typeface tf = Typeface.createFromAsset(getActivity().getAssets(),"Fonts/OpenSans-Regular.ttf");
         TextView textView = (TextView) view.findViewById(R.id.my_videos);
         textView.setTypeface(tf);
-        arrayList.add(new NotificationItem(text[0],R.drawable.ic_insert_emoticon_red_500_24dp));
-        arrayList.add(new NotificationItem(text[1],R.drawable.ic_insert_emoticon_red_500_24dp));
-        arrayList.add(new NotificationItem(text[2],R.drawable.ic_insert_emoticon_red_500_24dp));
+        arrayList.add(new NotificationItem(text[0],R.drawable.vid_thumb));
+        arrayList.add(new NotificationItem(text[1],R.drawable.vid_thumb));
+        arrayList.add(new NotificationItem(text[2],R.drawable.vid_thumb));
         recyclerView = (RecyclerView) view.findViewById(R.id.my_videos_recycler);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);

@@ -33,6 +33,7 @@
                 android:cursorVisible="true"
                 android:textSize="15dp"
                 android:paddingLeft="10dp"
+                android:inputType="text"
                 android:background="@drawable/search_bar"
                 />
         </android.support.v7.widget.Toolbar>

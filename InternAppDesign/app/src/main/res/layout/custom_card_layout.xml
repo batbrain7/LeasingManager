@@ -140,7 +140,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="15dp"
                     android:padding="5dp"
-                    android:background="@drawable/circular_black_button"
                     android:text="IML"
                     android:id="@+id/h4u"
                     android:textStyle="bold"
@@ -190,8 +189,8 @@
             </LinearLayout>
         </LinearLayout>
         <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:id="@+id/lik_btn"
             android:paddingLeft="5dp"
             android:paddingBottom="5dp"

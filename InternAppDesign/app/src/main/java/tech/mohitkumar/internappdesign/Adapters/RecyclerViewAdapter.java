@@ -1,8 +1,5 @@
 package tech.mohitkumar.internappdesign.Adapters;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,16 +10,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
 import android.widget.ImageView;
-import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -47,6 +40,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.util.ArrayList;
 
 import tech.mohitkumar.internappdesign.Activities.CommentsActivity;
+import tech.mohitkumar.internappdesign.Activities.DetailsActivity;
 import tech.mohitkumar.internappdesign.Activities.FullScreenVideos;
 import tech.mohitkumar.internappdesign.Activities.GroupClickActivity;
 import tech.mohitkumar.internappdesign.Activities.TextReplies;
@@ -85,7 +79,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(final RecyclerViewHolder holder, final int position) {
-        CardViewData cardViewData = arrayList.get(position);
+        final CardViewData cardViewData = arrayList.get(position);
         Handler mainHandler;
         Timeline.Window window;
         DataSource.Factory mediaDataSourceFactory;
@@ -159,10 +153,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         });
 
+        holder.name.setText(cardViewData.getName());
+
         holder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, CommentsActivity.class);
+                Intent intent = new Intent(context, DetailsActivity.class);
+                intent.putExtra("link",cardViewData.getLinks());
+                intent.putExtra("name",cardViewData.getName());
                 context.startActivity(intent);
             }
         });
@@ -170,6 +168,20 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         final Animation anm = AnimationUtils.loadAnimation(context,R.anim.transalte_scale);
         final Animation anmback = AnimationUtils.loadAnimation(context,R.anim.translate_back);
 
+        final boolean[] a = {true};
+
+        holder.iml.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(a[0] == true) {
+                    holder.iml.setBackground(context.getResources().getDrawable(R.drawable.circular_black_button));
+                    a[0] = false;
+                } else if(a[0] == false) {
+                    holder.iml.setBackgroundResource(0);
+                    a[0] = true;
+                }
+            }
+        });
 //        logtext.startAnimation(anm);
         final boolean[] b = {true};
         holder.heart.setOnClickListener(new View.OnClickListener() {
@@ -201,31 +213,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 //                    animatorSet.setDuration(500);
 //                    animatorSet.start();
                     holder.heart.setImageResource(R.drawable.heart3);
-//                    Handler handler = new Handler();
-//                    handler.postDelayed(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            holder.heart.startAnimation(anmback);
-//                        }
-//                    },700);
-
-//                    final AnimatorSet animatorSet1 = new AnimatorSet();
-//                    Handler handler = new Handler();
-//                    handler.postDelayed(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            ObjectAnimator y1 = ObjectAnimator.ofFloat(holder.heart,"translationY",holder.heart.getY(),5f);
-//                            ObjectAnimator x1 = ObjectAnimator.ofFloat(v,
-//                                    "translationX", v.getX(),-5f);
-//                            ObjectAnimator scalex1 = ObjectAnimator.ofFloat(holder.heart,"scaleX",0.2f);
-//                            ObjectAnimator scaley1 = ObjectAnimator.ofFloat(holder.heart,"scaleY",0.2f);
-//                            animatorSet1.playTogether(x1, y1,scalex1,scaley1);
-//                            animatorSet1.setInterpolator(new LinearInterpolator());
-//                            animatorSet1.setDuration(500);
-//                            animatorSet1.start();
-//                        }
-//                    },400);
-
                     b[0] = false;
                 } else if(!b[0]) {
                     holder.heart.setImageResource(R.drawable.hearts);
@@ -238,27 +225,28 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
 
-                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-                builder.setTitle("Choose an option").setItems(R.array.options, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        switch (which) {
-                            case 0:
-                                Intent intent = new Intent(context,UploadActivity.class);
-                                context.startActivity(intent);
-                                break;
-                            case 1:
-                                Intent intent2 = new Intent(context,UploadActivity.class);
-                                intent2.putExtra("title","Private Reply");
-                                context.startActivity(intent2);
-                                break;
-                            case 2:
-                                Intent intent1 = new Intent(context,TextReplies.class);
-                                context.startActivity(intent1);
-                                break;
-                        }
-                    }
-                }).show();
+                videoFinished.onInteraction(position);
+
+//                builder.setTitle("Choose an option").setItems(R.array.options, new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        switch (which) {
+//                            case 0:
+//                                Intent intent = new Intent(context,UploadActivity.class);
+//                                context.startActivity(intent);
+//                                break;
+//                            case 1:
+//                                Intent intent2 = new Intent(context,UploadActivity.class);
+//                                intent2.putExtra("title","Private Reply");
+//                                context.startActivity(intent2);
+//                                break;
+//                            case 2:
+//                                Intent intent1 = new Intent(context,TextReplies.class);
+//                                context.startActivity(intent1);
+//                                break;
+//                        }
+//                    }
+//                }).show();
                // videoFinished.onInteraction(position);
             }
         });

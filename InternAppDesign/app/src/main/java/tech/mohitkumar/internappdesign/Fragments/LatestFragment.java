@@ -48,6 +48,8 @@ public class LatestFragment extends Fragment {
         // Required empty public constructor
     }
 
+    String[] name = {"Frustrated about modi ji's demonetization","I'm an engineer from Amity Noida and i'm sick and tired of being down valued at placements.","I confess-\"Fought for my Partner- Lesbian partner","Izzat chaahata thaa…","Guilty Ashamed! Just wanted to pass the exam."};
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,9 +59,9 @@ public class LatestFragment extends Fragment {
 
         for(int i=0;i<5;i++) {
             if(i%2 == 0)
-                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8","","","","","","","","");
+                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8",name[i],"","","","","","","");
             else
-                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8","","","","","","","","");
+                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",name[i],"","","","","","","");
             arrayList.add(cardViewData);
         }
         Calligrapher calligrapher = new Calligrapher(getActivity());
@@ -80,6 +82,43 @@ public class LatestFragment extends Fragment {
 
             @Override
             public void onInteraction(int position) {
+
+                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getActivity());
+// ...Irrelevant code for customizing the buttons and title
+                LayoutInflater inflater = getActivity().getLayoutInflater();
+                View dialogView = inflater.inflate(R.layout.alert_dialog, null);
+                dialogBuilder.setView(dialogView);
+                TextView pub,pri,text;
+                text = (TextView) dialogView.findViewById(R.id.text_reply);
+                pub = (TextView) dialogView.findViewById(R.id.private_comment);
+                pri = (TextView) dialogView.findViewById(R.id.private_comment);
+
+                text.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(),TextReplies.class);
+                        startActivity(intent);
+                    }
+                });
+
+                pub.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(),UploadActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                pri.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getActivity(),UploadActivity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                AlertDialog alertDialog = dialogBuilder.create();
+                alertDialog.show();
 
             }
         });
