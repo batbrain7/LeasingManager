@@ -45,14 +45,12 @@ public class NearByFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_near_by, container, false);
         for(int i=0;i<5;i++) {
             if(i%2 == 0)
-                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8","","","","","","","","");
+                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8",name[i],"","","","","","","");
             else
-                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8","","","","","","","","");
+                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",name[i],"","","","","","","");
             arrayList.add(cardViewData);
         }
 
-        Calligrapher calligrapher = new Calligrapher(getActivity());
-        calligrapher.setFont(getActivity(),"Fonts/OpenSans-Regular.ttf",true);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);

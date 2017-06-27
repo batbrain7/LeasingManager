@@ -17,6 +17,13 @@
     android:orientation="vertical"
     >
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:id="@+id/text_view_title"
+            android:padding="5dp"
+            android:textColor="#fff"
+            />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="56dp"

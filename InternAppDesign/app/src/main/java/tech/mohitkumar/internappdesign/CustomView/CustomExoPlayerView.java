@@ -57,6 +57,7 @@ public class CustomExoPlayerView extends FrameLayout {
         boolean useTextureView = false;
         int resizeMode = AspectRatioFrameLayout.RESIZE_MODE_FIT;
         int rewindMs = CustomPlaybackControlView.DEFAULT_REWIND_MS;
+        String name = CustomPlaybackControlView.name;
         int fastForwardMs = CustomPlaybackControlView.DEFAULT_FAST_FORWARD_MS;
         int controllerShowTimeoutMs = CustomPlaybackControlView.DEFAULT_SHOW_TIMEOUT_MS;
         if (attrs != null) {
@@ -92,6 +93,7 @@ public class CustomExoPlayerView extends FrameLayout {
         controller.setRewindIncrementMs(rewindMs);
         controller.setFastForwardIncrementMs(fastForwardMs);
         this.controllerShowTimeoutMs = controllerShowTimeoutMs;
+        controller.setName(name);
 
         View view = useTextureView ? new TextureView(context) : new SurfaceView(context);
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(

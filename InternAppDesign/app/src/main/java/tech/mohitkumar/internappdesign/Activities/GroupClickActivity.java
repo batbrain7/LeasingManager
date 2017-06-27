@@ -31,6 +31,12 @@ public class GroupClickActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_click);
 
+
+        this.overridePendingTransition(R.anim.transition_left,
+                R.anim.translation_right);
+        this.overridePendingTransition(R.anim.translation_right,
+                R.anim.transition_left);
+
         String a = getIntent().getStringExtra("Name");
         if(a!=null) {
             getSupportActionBar().setTitle(a);

@@ -99,6 +99,10 @@ public class RecyclerVideoAdapter extends RecyclerView.Adapter<RecyclerVideoAdap
         MediaSource mediaSource = new HlsMediaSource(Uri.parse(s[0]),mediaDataSourceFactory, mainHandler, null);
         holder.player.prepare(mediaSource);
 
+        CustomPlaybackControlView.textView.setText("Title name here");
+
+        //holder.customExoPlayerView.setName("Reply title here");
+
         Log.d("INEND",Integer.toString(holder.getAdapterPosition()));
 
         holder.player.addListener(new ExoPlayer.EventListener() {

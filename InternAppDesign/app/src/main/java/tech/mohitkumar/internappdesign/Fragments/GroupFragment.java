@@ -34,7 +34,7 @@ public class GroupFragment extends Fragment {
     private String mParam2;
     public static final String DEBUG_TAG = "DEBUG_TAG";
 
-    ListView listView;
+    ListView listView,listView1;
     public GroupFragment() {
         // Required empty public constructor
     }
@@ -98,6 +98,18 @@ public class GroupFragment extends Fragment {
 
         listView.setAdapter(arrayAdapter);
 
+        listView1 = (ListView) view.findViewById(R.id.listview1);
+        List<String> your_array_list1 = new ArrayList<String>();
+        your_array_list1.add("Social");
+        your_array_list1.add("Politics");
+        your_array_list1.add("IIT Delhi boys");
+        your_array_list1.add("Delhi Girls");
+        your_array_list1.add("Modi");
+        ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(
+                getActivity(), android.R.layout.simple_list_item_1, your_array_list1 );
+
+        listView1.setAdapter(arrayAdapter1);
+
         return view;
     }
 
@@ -106,16 +118,6 @@ public class GroupFragment extends Fragment {
 
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);

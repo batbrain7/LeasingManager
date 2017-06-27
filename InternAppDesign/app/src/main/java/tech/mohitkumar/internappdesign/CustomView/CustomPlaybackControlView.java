@@ -58,6 +58,8 @@ public class CustomPlaybackControlView extends FrameLayout {
     private final ImageView playButton;
     private final TextView timeCurrent;
     public SeekBar progressBar;
+    public static TextView textView;
+    public static String name;
     private final StringBuilder formatBuilder;
     private final Formatter formatter;
     private final Timeline.Window currentWindow;
@@ -122,6 +124,7 @@ public class CustomPlaybackControlView extends FrameLayout {
         progressBar = (SeekBar) findViewById(R.id.mediacontroller_progress);
         progressBar.setOnSeekBarChangeListener(componentListener);
         progressBar.setMax(PROGRESS_BAR_MAX);
+        textView = (TextView) findViewById(R.id.text_view_title);
         playButton = (ImageView) findViewById(R.id.play);
         playButton.setOnClickListener(componentListener);
     }
@@ -171,6 +174,14 @@ public class CustomPlaybackControlView extends FrameLayout {
         updateNavigation();
     }
 
+    public void setName(String name) {
+        CustomPlaybackControlView.name = name;
+        setTextView();
+    }
+
+    public static void setTextView() {
+        textView.setText(CustomPlaybackControlView.name);
+    }
     /**
      * Sets the fast forward increment in milliseconds.
      *

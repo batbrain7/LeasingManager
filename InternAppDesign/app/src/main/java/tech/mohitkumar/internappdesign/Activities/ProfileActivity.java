@@ -51,7 +51,6 @@ public class ProfileActivity extends AppCompatActivity {
         mFragmentCardAdapter.addCardFragment(new MyVideos());
         mFragmentCardAdapter.addCardFragment(new ReplyFragment());
         mFragmentCardAdapter.addCardFragment(new Notification());
-        mFragmentCardAdapter.addCardFragment(new CardFragments());
 
         // mCardShadowTransformer = new ShadowTransformer(mViewPager, mCardAdapter);
         mFragmentCardShadowTransformer = new ShadowTransformer(mViewPager, mFragmentCardAdapter);

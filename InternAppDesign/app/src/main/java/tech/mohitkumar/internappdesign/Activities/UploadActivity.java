@@ -32,6 +32,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
     AnimatedCircleLoadingView animatedCircleLoadingView;
     Button button;
     TextView textView;
+    LinearLayout afraid1,sad1,frustrated1,depressed1,happy1,confused1,excited1;
     BottomSheetBehavior behavior;
 
     @Override
@@ -39,11 +40,24 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload);
 
+        this.overridePendingTransition(R.anim.transition_left,
+                R.anim.translation_right);
+        this.overridePendingTransition(R.anim.translation_right,
+                R.anim.transition_left);
+
         relativeLayout = (RelativeLayout) findViewById(R.id.bottom_sheet);
         Calligrapher calligrapher = new Calligrapher(this);
         calligrapher.setFont(this, "Fonts/OpenSans-Regular.ttf", true);
         Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
         startActivityForResult(intent,VIDEO_CAPTURE_REQUEST);
+
+        afraid1 = (LinearLayout) findViewById(R.id.afraid);
+        frustrated1 = (LinearLayout) findViewById(R.id.frusted);
+        depressed1 = (LinearLayout) findViewById(R.id.depressed);
+        happy1 = (LinearLayout) findViewById(R.id.happy);
+        confused1 = (LinearLayout) findViewById(R.id.confused);
+        excited1 = (LinearLayout) findViewById(R.id.excited);
+        sad1 = (LinearLayout) findViewById(R.id.sad);
 
         textView = (TextView) findViewById(R.id.emotion);
         afraid = (ImageView) findViewById(R.id.afraid_emoji);
@@ -111,6 +125,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 textView.setText("Afraid Emotion");
+                afraid1.setBackgroundColor(Color.parseColor("#4c76e1"));
+                frustrated1.setBackgroundColor(Color.parseColor("#ffffff"));
+                depressed1.setBackgroundColor(Color.parseColor("#ffffff"));
+                happy1.setBackgroundColor(Color.parseColor("#ffffff"));
+                confused1.setBackgroundColor(Color.parseColor("#ffffff"));
+                excited1.setBackgroundColor(Color.parseColor("#ffffff"));
+                sad1.setBackgroundColor(Color.parseColor("#ffffff"));
             }
         });
 
@@ -118,6 +139,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 textView.setText("Frustrated emotion");
+                afraid1.setBackgroundColor(Color.parseColor("#ffffff"));
+                frustrated1.setBackgroundColor(Color.parseColor("#4c76e1"));
+                depressed1.setBackgroundColor(Color.parseColor("#ffffff"));
+                happy1.setBackgroundColor(Color.parseColor("#ffffff"));
+                confused1.setBackgroundColor(Color.parseColor("#ffffff"));
+                excited1.setBackgroundColor(Color.parseColor("#ffffff"));
+                sad1.setBackgroundColor(Color.parseColor("#ffffff"));
             }
         });
 
@@ -125,6 +153,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 textView.setText("Depression emotion");
+                afraid1.setBackgroundColor(Color.parseColor("#ffffff"));
+                frustrated1.setBackgroundColor(Color.parseColor("#ffffff"));
+                depressed1.setBackgroundColor(Color.parseColor("#4c76e1"));
+                happy1.setBackgroundColor(Color.parseColor("#ffffff"));
+                confused1.setBackgroundColor(Color.parseColor("#ffffff"));
+                excited1.setBackgroundColor(Color.parseColor("#ffffff"));
+                sad1.setBackgroundColor(Color.parseColor("#ffffff"));
             }
         });
 
@@ -132,6 +167,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 textView.setText("Happy emotion");
+                afraid1.setBackgroundColor(Color.parseColor("#ffffff"));
+                frustrated1.setBackgroundColor(Color.parseColor("#ffffff"));
+                depressed1.setBackgroundColor(Color.parseColor("#ffffff"));
+                happy1.setBackgroundColor(Color.parseColor("#4c76e1"));
+                confused1.setBackgroundColor(Color.parseColor("#ffffff"));
+                excited1.setBackgroundColor(Color.parseColor("#ffffff"));
+                sad1.setBackgroundColor(Color.parseColor("#ffffff"));
             }
         });
 
@@ -139,6 +181,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 textView.setText("Confused emotion");
+                afraid1.setBackgroundColor(Color.parseColor("#ffffff"));
+                frustrated1.setBackgroundColor(Color.parseColor("#ffffff"));
+                depressed1.setBackgroundColor(Color.parseColor("#ffffff"));
+                happy1.setBackgroundColor(Color.parseColor("#ffffff"));
+                confused1.setBackgroundColor(Color.parseColor("#4c76e1"));
+                excited1.setBackgroundColor(Color.parseColor("#ffffff"));
+                sad1.setBackgroundColor(Color.parseColor("#ffffff"));
             }
         });
 
@@ -146,6 +195,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 textView.setText("Excited emotion");
+                afraid1.setBackgroundColor(Color.parseColor("#ffffff"));
+                frustrated1.setBackgroundColor(Color.parseColor("#ffffff"));
+                depressed1.setBackgroundColor(Color.parseColor("#ffffff"));
+                happy1.setBackgroundColor(Color.parseColor("#ffffff"));
+                confused1.setBackgroundColor(Color.parseColor("#ffffff"));
+                excited1.setBackgroundColor(Color.parseColor("#4c76e1"));
+                sad1.setBackgroundColor(Color.parseColor("#ffffff"));
             }
         });
 
@@ -153,6 +209,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
                 textView.setText("Sad emotion");
+                afraid1.setBackgroundColor(Color.parseColor("#ffffff"));
+                frustrated1.setBackgroundColor(Color.parseColor("#ffffff"));
+                depressed1.setBackgroundColor(Color.parseColor("#ffffff"));
+                happy1.setBackgroundColor(Color.parseColor("#ffffff"));
+                confused1.setBackgroundColor(Color.parseColor("#ffffff"));
+                excited1.setBackgroundColor(Color.parseColor("#ffffff"));
+                sad1.setBackgroundColor(Color.parseColor("#4c76e1"));
             }
         });
     }
@@ -183,21 +246,27 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.frusted_emoji :
                 button.setText("Frustrated emoji chosen");
+                frustrated1.setBackgroundColor(Color.parseColor("#4c76e1"));
                 break;
             case R.id.depressed_emoji :
                 button.setText("Depressed emoji chosen");
+                afraid1.setBackgroundColor(Color.parseColor("#4c76e1"));
                 break;
             case R.id.happy_emoji :
                 button.setText("Happy emoji chosen");
+                happy1.setBackgroundColor(Color.parseColor("#4c76e1"));
                 break;
             case R.id.confused_emoji :
                 button.setText("Confused emoji chosen");
+                confused1.setBackgroundColor(Color.parseColor("#4c76e1"));
                 break;
             case R.id.excited_emoji :
                 button.setText("Excited emoji chosen");
+                excited1.setBackgroundColor(Color.parseColor("#4c76e1"));
                 break;
             case R.id.sad_emoji :
                 button.setText("Sad emoji chosen");
+                sad1.setBackgroundColor(Color.parseColor("#4c76e1"));
                 break;
         }
     }
