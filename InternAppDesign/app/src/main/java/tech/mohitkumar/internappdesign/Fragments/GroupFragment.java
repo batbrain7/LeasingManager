@@ -4,8 +4,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GestureDetectorCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -18,8 +16,6 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
-import tech.mohitkumar.internappdesign.Adapters.RecyclerViewAdapter;
-import tech.mohitkumar.internappdesign.Models.CardViewData;
 import tech.mohitkumar.internappdesign.R;
 
 public class GroupFragment extends Fragment {
@@ -93,8 +89,8 @@ public class GroupFragment extends Fragment {
         your_array_list.add("Modi");
         your_array_list.add("Love");
         your_array_list.add("Indian");
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
-                getActivity(), android.R.layout.simple_list_item_1, your_array_list );
+        your_array_list.add("View more");
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.custom_list,R.id.group_name,your_array_list );
 
         listView.setAdapter(arrayAdapter);
 
@@ -105,8 +101,9 @@ public class GroupFragment extends Fragment {
         your_array_list1.add("IIT Delhi boys");
         your_array_list1.add("Delhi Girls");
         your_array_list1.add("Modi");
+        your_array_list1.add("View more");
         ArrayAdapter<String> arrayAdapter1 = new ArrayAdapter<String>(
-                getActivity(), android.R.layout.simple_list_item_1, your_array_list1 );
+                getActivity(), R.layout.custom_list,R.id.group_name,your_array_list1 );
 
         listView1.setAdapter(arrayAdapter1);
 

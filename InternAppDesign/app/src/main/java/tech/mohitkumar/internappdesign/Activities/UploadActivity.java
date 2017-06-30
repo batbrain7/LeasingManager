@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.jlmd.animatedcircleloadingview.AnimatedCircleLoadingView;
 
@@ -75,15 +76,20 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
 
-                animatedCircleLoadingView.startIndeterminate();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        animatedCircleLoadingView.setPercent(100);
-                        animatedCircleLoadingView.stopOk();
-                    }
-                },10000);
+                if (textView.getText().toString().equals("Choose an emotion")) {
+                    Toast.makeText(getApplicationContext(),"Please choose an emotion first",Toast.LENGTH_LONG).show();
+                } else {
+
+                    animatedCircleLoadingView.startDeterminate();
+                    Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            animatedCircleLoadingView.setPercent(10);
+                            animatedCircleLoadingView.stopOk();
+                        }
+                    }, 1000);
+                }
             }
         });
         button = (Button) findViewById(R.id.selection);
@@ -132,6 +138,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                 confused1.setBackgroundColor(Color.parseColor("#ffffff"));
                 excited1.setBackgroundColor(Color.parseColor("#ffffff"));
                 sad1.setBackgroundColor(Color.parseColor("#ffffff"));
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                    }
+                },300);
             }
         });
 
@@ -146,6 +159,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                 confused1.setBackgroundColor(Color.parseColor("#ffffff"));
                 excited1.setBackgroundColor(Color.parseColor("#ffffff"));
                 sad1.setBackgroundColor(Color.parseColor("#ffffff"));
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                    }
+                },300);
             }
         });
 
@@ -160,6 +180,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                 confused1.setBackgroundColor(Color.parseColor("#ffffff"));
                 excited1.setBackgroundColor(Color.parseColor("#ffffff"));
                 sad1.setBackgroundColor(Color.parseColor("#ffffff"));
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                    }
+                },300);
             }
         });
 
@@ -174,6 +201,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                 confused1.setBackgroundColor(Color.parseColor("#ffffff"));
                 excited1.setBackgroundColor(Color.parseColor("#ffffff"));
                 sad1.setBackgroundColor(Color.parseColor("#ffffff"));
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                    }
+                },300);
             }
         });
 
@@ -188,6 +222,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                 confused1.setBackgroundColor(Color.parseColor("#4c76e1"));
                 excited1.setBackgroundColor(Color.parseColor("#ffffff"));
                 sad1.setBackgroundColor(Color.parseColor("#ffffff"));
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                    }
+                },300);
             }
         });
 
@@ -202,6 +243,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                 confused1.setBackgroundColor(Color.parseColor("#ffffff"));
                 excited1.setBackgroundColor(Color.parseColor("#4c76e1"));
                 sad1.setBackgroundColor(Color.parseColor("#ffffff"));
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                    }
+                },300);
             }
         });
 
@@ -216,6 +264,13 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
                 confused1.setBackgroundColor(Color.parseColor("#ffffff"));
                 excited1.setBackgroundColor(Color.parseColor("#ffffff"));
                 sad1.setBackgroundColor(Color.parseColor("#4c76e1"));
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        behavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                    }
+                },300);
             }
         });
     }

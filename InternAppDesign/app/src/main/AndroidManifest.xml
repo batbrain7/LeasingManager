@@ -24,32 +24,42 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.Secondary"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activities.ProfileActivity"
-            android:screenOrientation="portrait"
+        <activity
+            android:name=".Activities.Secondary"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.ProfileActivity"
             android:label="Activity"
-            />
-        <activity android:name=".Activities.FullScreenVideos"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.FullScreenVideos"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.CommentsActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activities.TextReplies"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.TextReplies"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.UploadActivity"
             android:label="Upload Video"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activities.NotificationActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activities.GroupClickActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".Activities.DetailsActivity"
-            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Activities.NotificationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.GroupClickActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Activities.DetailsActivity"
             android:label=""
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activities.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

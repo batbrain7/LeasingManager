@@ -22,6 +22,7 @@ import android.view.WindowManager;
 import me.anwarshahriar.calligrapher.Calligrapher;
 import tech.mohitkumar.internappdesign.Activities.NotificationActivity;
 import tech.mohitkumar.internappdesign.Activities.ProfileActivity;
+import tech.mohitkumar.internappdesign.Activities.SettingsActivity;
 import tech.mohitkumar.internappdesign.Activities.UploadActivity;
 import tech.mohitkumar.internappdesign.Adapters.ViewPagerAdapter;
 import tech.mohitkumar.internappdesign.Fragments.GroupFragment;
@@ -156,9 +157,10 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_gallery) {
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_settings) {
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_faq) {
 
         }
 

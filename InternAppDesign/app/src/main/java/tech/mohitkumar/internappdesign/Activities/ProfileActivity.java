@@ -34,7 +34,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        getSupportActionBar().setTitle("Profile");
+        getSupportActionBar().setTitle("Activity");
 
 
         mViewPager = (ViewPager) findViewById(R.id.viewPager);

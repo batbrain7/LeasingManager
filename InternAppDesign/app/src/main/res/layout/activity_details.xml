@@ -15,6 +15,7 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="#000"
             android:id="@+id/collapsing_toolbar"
             app:contentScrim="?colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -41,6 +42,8 @@
                             android:textColor="#fff"
                             android:paddingBottom="5dp"
                             android:id="@+id/name_vid"
+                            android:background="#000"
+                            android:gravity="center"
                             android:textAppearance="?android:textAppearanceLarge"
                             />
                     </LinearLayout>
@@ -103,11 +106,13 @@
                             android:id="@+id/time_elapsed"
                             android:layout_marginLeft="5dp"
                             android:text="30 min ago"
+                            android:textColor="#fff"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:id="@+id/no_views"
+                            android:textColor="#fff"
                             android:text="79 Views"
                             android:layout_marginLeft="20dp"
                             />
@@ -119,9 +124,9 @@
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:id="@+id/tags"
-                        android:textColor="#000"
+                        android:textColor="#fff"
                         android:layout_gravity="end"
-                        android:background="@drawable/shape_edttxt"
+                        android:background="@drawable/shape_ed"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -137,6 +142,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="23"
+                        android:textColor="#fff"
                         android:layout_marginLeft="5dp"
                         android:id="@+id/no_likes"
                         />
@@ -153,6 +159,7 @@
                         />
                     <TextView
                         android:layout_width="wrap_content"
+                        android:textColor="#fff"
                         android:layout_height="wrap_content"
                         android:id="@+id/no_h4u"
                         android:text="125"
@@ -169,6 +176,7 @@
                         android:layout_marginLeft="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="#fff"
                         android:id="@+id/no_reply"
                         android:text="10"
                         />

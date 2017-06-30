@@ -44,9 +44,9 @@ public class GroupClickActivity extends AppCompatActivity {
 
         for(int i=0;i<5;i++) {
             if(i%2 == 0)
-                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8","","","","","","","","");
+                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8","Title here","","","","","","","");
             else
-                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8","","","","","","","","");
+                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8","Title here","","","","","","","");
             arrayList.add(cardViewData);
         }
         Calligrapher calligrapher = new Calligrapher(GroupClickActivity.this);
