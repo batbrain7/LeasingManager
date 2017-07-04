@@ -6,9 +6,6 @@
     tools:context="tech.mohitkumar.internappdesign.Fragments.GroupFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -37,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:id="@+id/lin_popular_layout"
             >
             <TextView
                 android:layout_width="match_parent"
@@ -49,7 +47,7 @@
                 />
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:id="@+id/list_pop_groups"
                 android:background="#fff"
                 android:layout_weight="1"
@@ -57,23 +55,67 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="View more"
+                android:padding="10dp"
+                android:background="#eee"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:text="My Groups"
                 android:textColor="#fff"
+                android:id="@+id/group_specifier_1"
                 android:paddingTop="20dp"
                 android:paddingLeft="20dp"
                 android:paddingBottom="20dp"
                 android:background="@color/colorPrimary"
                 android:textAppearance="?android:textAppearanceLarge"
                 />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/lin_my_layout"
+            android:visibility="invisible"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:text="My Groups"
+                android:textColor="#fff"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:textAppearance="?android:textAppearanceLarge"
+                />
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:id="@+id/listview1"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:id="@+id/list_my_groups"
                 android:background="#fff"
-                >
-            </ListView>
+                android:layout_weight="1"
+                ></ListView>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="View more"
+                android:padding="10dp"
+                android:background="#eee"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Popular Groups"
+                android:textColor="#fff"
+                android:paddingTop="20dp"
+                android:id="@+id/group_specifier"
+                android:paddingLeft="20dp"
+                android:paddingBottom="20dp"
+                android:background="@color/colorPrimary"
+                android:textAppearance="?android:textAppearanceLarge"
+                />
         </LinearLayout>
     </RelativeLayout>
-    </ScrollView>
 </FrameLayout>

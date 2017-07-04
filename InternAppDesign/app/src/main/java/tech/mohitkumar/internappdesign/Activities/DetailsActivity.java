@@ -1,5 +1,6 @@
 package tech.mohitkumar.internappdesign.Activities;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Handler;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -8,6 +9,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -45,10 +50,55 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
 
         String s = getIntent().getStringExtra("link");
-        String a = getIntent().getStringExtra("name");
+        final String a = getIntent().getStringExtra("name");
+
+        final TextView tag1 = (TextView) findViewById(R.id.tags);
+        final TextView iml = (TextView) findViewById(R.id.h4u);
+        final ImageView heart = (ImageView) findViewById(R.id.lik_btn);
 
         TextView textView = (TextView) findViewById(R.id.name_vid);
         textView.setText(a);
+
+        tag1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailsActivity.this, GroupClickActivity.class);
+                intent.putExtra("Name",tag1.getText().toString());
+                startActivity(intent);
+            }
+        });
+
+        final boolean[] ai = {true};
+        iml.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(ai[0] == true) {
+                    iml.setBackground(getResources().getDrawable(R.drawable.circular_black_button));
+                    ai[0] = false;
+                } else if(ai[0] == false) {
+                    iml.setBackgroundResource(0);
+                    ai[0] = true;
+                }
+            }
+        });
+        final Animation anm = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.transalte_scale);
+
+        final boolean[] b = {true};
+        heart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                if(b[0]) {
+
+                    heart.startAnimation(anm);;
+                    heart.startAnimation(anm);
+                    heart.setImageResource(R.drawable.heart3);
+                    b[0] = false;
+                } else if(!b[0]) {
+                    heart.setImageResource(R.drawable.hearts);
+                    b[0] = true;
+                }
+            }
+        });
 
         Timeline.Window window;
         DataSource.Factory mediaDataSourceFactory;

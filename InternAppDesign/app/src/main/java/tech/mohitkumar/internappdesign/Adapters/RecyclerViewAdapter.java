@@ -190,28 +190,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 if(b[0]) {
 
                     holder.heart.startAnimation(anm);;
-
-//                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
-//                        Animator anim =
-//                                ViewAnimationUtils.createCircularReveal(holder.itemView, cx, cy, 0, finalRadius);
-//                        holder.itemView.setVisibility(View.VISIBLE);
-//                      //  anim.start();
-//                    }]
                     holder.heart.startAnimation(anm);
-//
-//                    //holder.heart.bringToFront();
-
-//                    final AnimatorSet animatorSet = new AnimatorSet();
-//
-//                    ObjectAnimator y = ObjectAnimator.ofFloat(holder.heart,"translationY",holder.heart.getY(),-5f);
-//                    ObjectAnimator x = ObjectAnimator.ofFloat(v, "translationX", v.getX(),5f);
-//                    ObjectAnimator scalex = ObjectAnimator.ofFloat(holder.heart,"scaleX",2f);
-//                    ObjectAnimator scaley = ObjectAnimator.ofFloat(holder.heart,"scaleY",2f);
-//
-//                    animatorSet.playTogether(x, y,scalex,scaley);
-//                    animatorSet.setInterpolator(new LinearInterpolator());
-//                    animatorSet.setDuration(500);
-//                    animatorSet.start();
                     holder.heart.setImageResource(R.drawable.heart3);
                     b[0] = false;
                 } else if(!b[0]) {
@@ -224,30 +203,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.reply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 videoFinished.onInteraction(position);
-
-//                builder.setTitle("Choose an option").setItems(R.array.options, new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        switch (which) {
-//                            case 0:
-//                                Intent intent = new Intent(context,UploadActivity.class);
-//                                context.startActivity(intent);
-//                                break;
-//                            case 1:
-//                                Intent intent2 = new Intent(context,UploadActivity.class);
-//                                intent2.putExtra("title","Private Reply");
-//                                context.startActivity(intent2);
-//                                break;
-//                            case 2:
-//                                Intent intent1 = new Intent(context,TextReplies.class);
-//                                context.startActivity(intent1);
-//                                break;
-//                        }
-//                    }
-//                }).show();
-               // videoFinished.onInteraction(position);
             }
         });
 

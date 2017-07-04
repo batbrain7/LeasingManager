@@ -1,5 +1,6 @@
 package tech.mohitkumar.internappdesign.Activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Handler;
@@ -11,8 +12,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -33,6 +38,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
     AnimatedCircleLoadingView animatedCircleLoadingView;
     Button button;
     TextView textView;
+    EditText editText,editText1;
     LinearLayout afraid1,sad1,frustrated1,depressed1,happy1,confused1,excited1;
     BottomSheetBehavior behavior;
 
@@ -52,6 +58,8 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
         Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
         startActivityForResult(intent,VIDEO_CAPTURE_REQUEST);
 
+        editText = (EditText) findViewById(R.id.name_video);
+        editText1 = (EditText) findViewById(R.id.name_group);
         afraid1 = (LinearLayout) findViewById(R.id.afraid);
         frustrated1 = (LinearLayout) findViewById(R.id.frusted);
         depressed1 = (LinearLayout) findViewById(R.id.depressed);
@@ -59,7 +67,6 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
         confused1 = (LinearLayout) findViewById(R.id.confused);
         excited1 = (LinearLayout) findViewById(R.id.excited);
         sad1 = (LinearLayout) findViewById(R.id.sad);
-
         textView = (TextView) findViewById(R.id.emotion);
         afraid = (ImageView) findViewById(R.id.afraid_emoji);
         frusted = (ImageView) findViewById(R.id.frusted_emoji);
@@ -76,7 +83,8 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             @Override
             public void onClick(View v) {
 
-                if (textView.getText().toString().equals("Choose an emotion")) {
+                if (textView.getText().toString().equals("Choose an emotion") || editText.getText().toString().equals("")
+                        || editText1.getText().equals("")) {
                     Toast.makeText(getApplicationContext(),"Please choose an emotion first",Toast.LENGTH_LONG).show();
                 } else {
 
@@ -96,6 +104,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                hideKeyboard(v);
                 behavior.setState(BottomSheetBehavior.STATE_EXPANDED);
             }
         });
@@ -106,13 +115,10 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
             public void onStateChanged(@NonNull View bottomSheet, int newState) {
                 switch (newState){
                     case BottomSheetBehavior.STATE_COLLAPSED:
-                        //.setText("Slide up for choosing emoji");
                         break;
                     case BottomSheetBehavior.STATE_DRAGGING:
                         break;
                     case BottomSheetBehavior.STATE_EXPANDED:
-                      //  textView.setText("Slide down after choosing the emoji");
-
                         break;
                     case BottomSheetBehavior.STATE_HIDDEN:
                         break;
@@ -288,6 +294,23 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
     public void onBackPressed() {
         super.onBackPressed();
         finish();
+    }
+
+    public void hideKeyboard(View root) {
+        root.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    View view = v.getRootView().findFocus();
+                    if (view != null) {
+                        InputMethodManager imm = (InputMethodManager) UploadActivity.this.getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                    }
+                    return false;
+                }
+                return false;
+            }
+        });
     }
 
     @Override

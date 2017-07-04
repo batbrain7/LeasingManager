@@ -119,6 +119,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Afraid"
+                    android:textColor="#000"
                     android:layout_gravity="center_horizontal"
                     />
             </LinearLayout>
@@ -138,6 +139,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#000"
                     android:text="Frusted"
                     android:layout_gravity="center_horizontal"
                     />
@@ -158,6 +160,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#000"
                 android:text="Depressed"
                 android:layout_gravity="center_horizontal"
                 />
@@ -178,6 +181,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#000"
                 android:layout_gravity="center_horizontal"
                 android:text="Happy"
                 />
@@ -206,6 +210,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#000"
                 android:text="Confused"
                 android:layout_gravity="center_horizontal"
                 />
@@ -226,6 +231,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#000"
                 android:text="Excited"
                 android:layout_gravity="center_horizontal"
                 />
@@ -246,6 +252,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#000"
                 android:text="Sad"
                 android:layout_gravity="center_horizontal"
                 />

@@ -44,8 +44,7 @@
         <activity
             android:name=".Activities.UploadActivity"
             android:label="Upload Video"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Activities.NotificationActivity"
             android:screenOrientation="portrait" />
