@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.exoplayer2.DefaultLoadControl;
@@ -38,6 +40,8 @@ import com.google.android.exoplayer2.upstream.TransferListener;
 import com.google.android.exoplayer2.util.Util;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import tech.mohitkumar.internappdesign.Activities.CommentsActivity;
 import tech.mohitkumar.internappdesign.Activities.DetailsActivity;
@@ -48,16 +52,20 @@ import tech.mohitkumar.internappdesign.Activities.UploadActivity;
 import tech.mohitkumar.internappdesign.CustomView.CustomExoPlayerView;
 import tech.mohitkumar.internappdesign.Interface.VideoFinished;
 import tech.mohitkumar.internappdesign.Models.CardViewData;
+import tech.mohitkumar.internappdesign.Models.HorizontalItems;
 import tech.mohitkumar.internappdesign.R;
 
 /**
  * Created by mohitkumar on 14/06/17.
  */
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.RecyclerViewHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     Context context;
-    ArrayList<CardViewData> arrayList = new ArrayList<CardViewData>();
+    List<Object> arrayList = new ArrayList<Object>();
+    private final int horz=0,vert=1;
+
+    HorizontalRecyclerAdapter horizontalAdapter;
 
     private VideoFinished videoFinished;
 
@@ -65,20 +73,40 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         this.videoFinished = videoFinished;
     }
 
-    public RecyclerViewAdapter(ArrayList<CardViewData> arrayList, Context context) {
+    public RecyclerViewAdapter(List<Object> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
 
     @Override
-    public RecyclerViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_card_layout,parent,false);
-        RecyclerViewHolder recyclerViewHolder = new RecyclerViewHolder(view,arrayList,context);
-        return recyclerViewHolder;
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        RecyclerView.ViewHolder viewHolder = null;
+
+        switch (viewType) {
+            case vert:
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_card_layout, parent, false);
+                viewHolder = new RecyclerViewHolder(view,context);
+                break;
+            case horz :
+                View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recy_layout_2, parent, false);
+                viewHolder = new RecyclerViewHolder1(view1,context);
+                break;
+        }
+        return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder1, final int position) {
+
+        switch (holder1.getItemViewType()) {
+            case horz :
+                RecyclerViewHolder1 holder2 = (RecyclerViewHolder1)holder1;
+                
+                break;
+            case vert :
+                break;
+        }
         final CardViewData cardViewData = arrayList.get(position);
         Handler mainHandler;
         Timeline.Window window;
@@ -92,6 +120,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         Typeface tf = Typeface.createFromAsset(context.getAssets(),"Fonts/OpenSans-Regular.ttf");
         Typeface tff = Typeface.createFromAsset(context.getAssets(),"Fonts/SourceSansPro-Regular.ttf");
+
+     //   final RecyclerViewHolder holder = (RecyclerViewHolder)holder1;
+        final RecyclerViewHolder holder = (RecyclerViewHolder)holder1;
 
         holder.name.setTypeface(tf);
         holder.time.setTypeface(tf);
@@ -210,6 +241,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     @Override
+    public int getItemViewType(int position) {
+        if(arrayList.get(position) instanceof CardViewData) {
+            return vert;
+        } else if(arrayList.get(position) instanceof HorizontalItems) {
+            return horz;
+        }
+        return -1;
+    }
+
+    @Override
     public int getItemCount() {
         return arrayList.size();
     }
@@ -221,28 +262,39 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         CustomExoPlayerView customExoPlayerView;
         SimpleExoPlayer player;
         CardView cardView;
-
-        ArrayList<CardViewData> arrayList;
         Context context;
 
-        public RecyclerViewHolder(View itemView,ArrayList<CardViewData> arrayList,Context context) {
+        public RecyclerViewHolder(View itemView,Context context) {
             super(itemView);
             this.context = context;
-            this.arrayList = arrayList;
-            cardView = (CardView) itemView.findViewById(R.id.card_view_card);
-            heart = (ImageView) itemView.findViewById(R.id.lik_btn);
-            reply = (ImageView) itemView.findViewById(R.id.reply);
-            share = (ImageView) itemView.findViewById(R.id.share_btn);
-            down = (ImageView) itemView.findViewById(R.id.down_btn);
-            name = (TextView) itemView.findViewById(R.id.name_vid);
-            tag1 = (TextView) itemView.findViewById(R.id.tags);
-            iml = (TextView) itemView.findViewById(R.id.h4u);
-            time = (TextView) itemView.findViewById(R.id.time_elapsed);
-            views = (TextView) itemView.findViewById(R.id.no_views);
-            comments = (TextView) itemView.findViewById(R.id.no_reply);
-            h4u = (TextView) itemView.findViewById(R.id.no_h4u);
-            likes = (TextView) itemView.findViewById(R.id.no_likes);
-            customExoPlayerView = (CustomExoPlayerView) itemView.findViewById(R.id.player_view_card);
+                cardView = (CardView) itemView.findViewById(R.id.card_view_card);
+                heart = (ImageView) itemView.findViewById(R.id.lik_btn);
+                reply = (ImageView) itemView.findViewById(R.id.reply);
+                share = (ImageView) itemView.findViewById(R.id.share_btn);
+                down = (ImageView) itemView.findViewById(R.id.down_btn);
+                name = (TextView) itemView.findViewById(R.id.name_vid);
+                tag1 = (TextView) itemView.findViewById(R.id.tags);
+                iml = (TextView) itemView.findViewById(R.id.h4u);
+                time = (TextView) itemView.findViewById(R.id.time_elapsed);
+                views = (TextView) itemView.findViewById(R.id.no_views);
+                comments = (TextView) itemView.findViewById(R.id.no_reply);
+                h4u = (TextView) itemView.findViewById(R.id.no_h4u);
+                likes = (TextView) itemView.findViewById(R.id.no_likes);
+                customExoPlayerView = (CustomExoPlayerView) itemView.findViewById(R.id.player_view_card);
+        }
+    }
+
+    public class RecyclerViewHolder1 extends RecyclerView.ViewHolder {
+
+        Context context;
+        RecyclerView recyclerView;
+        public RecyclerViewHolder1(View itemView, Context context) {
+            super(itemView);
+            this.context = context;
+            recyclerView = (RecyclerView) itemView.findViewById(R.id.recycler_view_inside);
+            recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+            horizontalAdapter = new HorizontalRecyclerAdapter(context,arrayList);
+            recyclerView.setAdapter(horizontalAdapter);
         }
     }
 }

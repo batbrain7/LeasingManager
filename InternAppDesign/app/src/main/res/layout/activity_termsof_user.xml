@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="tech.mohitkumar.internappdesign.Activities.TermsofUser">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:text="Terms of Use"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:gravity="center"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. General \n
+These terms of service (as updated from time to time, the Terms govern your access to and use of the YoBlunt Service (as defined below) and any video recordings, information, or other content materials uploaded or appearing on the Service whether utilized via the YoBlunt website available at http://www.yoblunt.com (the Website). Please read these Terms carefully before uploading, sharing or using the Service. By accepting these Terms, you agree to be bound by them. If you do not understand the Terms, or do not accept any part of them, then you should not use the Service\n
+
+\n\n2. The Service \n
+The Service is a hosting service which allows users to upload, post and share video recordings, and to create audio-visual content combining self-created videos and own video recordings, which will be stored by us and be shared and made publicly available by users. As part of the Service, we may regularly update you on new content, features as well as to provide you with certain service announcements and administrative messages.\n
+
+We may, from time to time, release new versions of our website, release new tools, or introduce new services and/or features for the Service, which will be subject to these Terms, and any additional terms of service as may apply to such additional versions, tools, services, or features.\n
+
+We reserve the right to suspend, discontinue, withdraw, take down or amend all or part of the Service and all or part of the content available on the Service at any time to, for example, reflect changes to the law or new technical developments, temporarily or permanently. Any changes will take into account your reasonable interests, and we shall use our reasonable endeavors to notify you thereof in advance. Access to all or part of the Service may be restricted from time to time to allow for repairs, maintenance or updating. This may result in you not being able to use the Service until you have downloaded the latest version.\n
+
+\n\n3.Access/Use of the Service \n
+You can access the Service via the Website.\n
+
+To use the service you must be eighteen (18) years old or older. By logging in for the Service you promise to us that you accept these Terms and that: you are 18 years of age\n
+
+We advise parents who permit their children to use the Service to be aware that the Service is not intended for children under 18. The content made available on the Service is user generated and may not be suitable for children.\n
+
+To access the Service, you will not need to register with us or make a profile, as we believe that true confessions, frustrations come when the person stays anonymous.\n
+
+We reserve the right to suspend or remove your video and/or prohibit your use of the Service, without prior notice, if we (in our reasonable discretion) believe there may have been a breach of security that we believe breach these Terms.\n
+
+Access to and use of the Service requires a compatible device and internet connection. Although we are working to ensure that the Service is compatible across various devices, we cannot guarantee that the Service will work with all devices.\n
+
+It is your responsibility to ensure that your device complies with the requirements. Your use of the Service may vary in functionality, availability and quality depending on the type of the device and the operating system that it uses and YoBlunt accepts no responsibility for any lack of functionality that is due to your equipment (including your device, internet connection, operating system or settings and software).\n
+
+It is your responsibility to pay for all costs and expenses that you may incur while using the Service (including, but not limited to, all telephone call or line charges or Internet data service access charges).\n
+
+You agree that your use of the Services will not violate any law, contract, intellectual property or other third-party right or constitute a tort, and that you are solely responsible for your conduct while on the Services and you use the Services at your own risk. You further agree not to:\n
+
+Use the Services in any manner that could inhibit other users from fully enjoying the Services or that could damage or impair the functioning of the Services;\n
+
+Engage in any discriminatory, defamatory, hateful, harassing, abusive, obscene, nudity, arousal, anti-social, anti-national, threatening, physically dangerous, or otherwise objectionable conduct;\n
+
+Attempt to indicate that you have a relationship with YoBlunt or that YoBlunt has endorsed you or any products or services;\n
+
+Send any unsolicited advertising or promotional materials or collect the email addresses or other contact information of other users from the Services for the purpose of sending commercial messages;\n
+
+Attempt to reverse engineer any aspect of the Services or do anything that might circumvent measures employed to prevent or limit access to any area, content or code of the Services (except as otherwise expressly permitted by law);\n
+
+Use or attempt to use another�s account without authorization from such user and YoBlunt; Develop any third-party application that interacts with the Services without YoBlunt�s prior written consent; Use any automated means or interface not provided by YoBlunt to access the Services.\n
+
+\n\n4.User-Generated Content\n
+You are solely responsible for your use of the Service and any video recordings ,videos, words, information, messages and any other content that you upload to or made publicly available on YoBlunt.com(together, User Content). It is your choice as a user to record video showing your full face, sharing your name, location or more in a video Or make a video with camera at nose and below angel.\n
+
+In addition, you grant to each user of the Service, a worldwide, non-exclusive, royalty-free license to access your User Content through the Service, and to use, reproduce, distribute, share with third party, display, adapt, prepare derivative works of, compile, make available, communicate to the public and perform such User Content, to the extent permitted by the functionality of the Service and in accordance with these Terms.\n
+
+You understand and agree to comply with all applicable laws in relation to your use of the Service and User Content. In particular, and without limitation, you shall at all times ensure that your User Content does not: contain any content, information or material that infringes the rights of any third party including copyright, trade mark rights, confidential information or rights of privacy; violate any applicable laws; contain any content or material that is defamatory, libelous, derogatory, bullying, discriminatory, obscene, violent, sexually explicit, indecent, which promotes or encourages violence, terrorism or any other illegal acts or which is likely to harass, upset, embarrass, alarm, inconvenience or annoy any person; in any way promote or incite anyone to commit or assist in any unlawful or criminal activity or anti-social behavior, or encourage activities which could endanger the safety or wellbeing of others; identify any person without their consent, or the consent of their parent or legal guardian if they are under 18 years of age; disclose anyone�s personal contact details or invade their privacy; contain any viruses or other malicious or harmful programs; or include any advertising or promotional messages.\n
+
+Furthermore, you understand and agree that you will not do or attempt to do, or cause any third party to do or attempt to do, any of the following in connection with your use of the Service: Use the Service or User Content available on the Service other than as expressly permitted by these Terms and the normal functionality of the Service; transmit other people�s personal and/or confidential information, such as credit card numbers, account passwords etc.; use the Service for any illegal purpose, in an unlawful manner or in any manner inconsistent with these Terms; impersonate or pretend to be anyone else through your use of the Service; use the Service in a way that could damage, disable, overburden, impair or compromise the Service, our systems or security or interfere with other users; use any program or other means, including but not limited to scripts, spiders and robots, whether manually or automatically, to extract, download, index, mine, scrape, reproduce or circumvent the presentation, operation or intended use of the Service or any features or functions of it; copy, modify, decompile or otherwise interfere with any part of the Service; make alterations to, or modifications of, the whole or part of the Service, or permit the Service or any part of it to be combined with, or become incorporated in, any other programs; hack into, or insert malicious code, including viruses, or harmful data, into, the Service; or infringe our intellectual property in relation to your use of the Service.\n
+
+You acknowledge and agree that we are merely a passive conduit and hosting service for User Content and that we play no active role in the distribution or presentation of User Content.\n
+
+We are under no obligation to monitor User Content posted on the Service and we cannot and do not take any responsibility for such User Content, nor do we endorse, support or guarantee the completeness, accuracy or reliability of any User Content or communications posted via the Services or opinions expressed therein. Use of or reliance on any User Content or materials posted via the Service or obtained by you through the Service is at your own risk.\n
+
+If we, in our sole discretion, believe that there has been a breach of these Terms, or we have reasonable grounds to believe that you are likely to breach these Terms, we may take any action we think is necessary to protect the Service and its users. We may withdraw your right to use the Service, remove your User Content from the service, take legal proceedings against you (for example, if we have had to pay damages because of your User Content, we will claim to get that amount back) and other action we deem appropriate.\n
+
+\n\n5.License of the Service\n
+Subject to your compliance with these Terms, YoBlunt grants you a limited, non-exclusive, personal, worldwide, royalty-free, non-transferable, non-assignable, non-re-saleable, and freely revocable license to access and use the website service, subject to these Terms and the Privacy Policy.\n
+
+\n\n6.YoBlunt Rights\n
+As between you and us, all rights, titles and interests in and to the Service, including any and all trademarks and other intellectual property rights in and to the Service (excluding any User Content and other content uploaded or otherwise provided by users, subject only to the limited revocable rights granted hereunder) are and will remain the exclusive property of YoBlunt and its licensors\n
+
+If you submit or post User Content to the Services, you grant YoBlunt a nonexclusive, royalty-free, worldwide, and fully sub-licensable right to use, reproduce, modify, adapt, publish, translate, create derivative works from, distribute, perform and display your User Content in any media (now known or later developed), including in connection with YoBlunt�s marketing and promotional activities. You agree that this license includes the right for YoBlunt to make User Content available to other companies, organizations or individuals for the syndication, broadcast, distribution or publication on the Services or on other media and services. You understand that User Content may be displayed publicly. YoBlunt does not control, take responsibility for or assume liability for any User Content or any loss or damage related to User Content.\n
+
+You may only post User Content that\n
+you have all necessary rights to post to the Services,\n
+is accurate and not misleading or harmful in any manner, and\n
+does not and will not violate these Terms or any applicable law, rule or regulation.\n
+Copyright, Reporting and Notice and Takedown Policy\n
+YoBlunt respects the intellectual property rights of others and expects users of the Service to do the same.\n
+
+If you discover any content on the Service that you believe infringes your copyright, please report this to us in writing including the following information: a statement that you have identified content on the Service that infringes your copyright or the copyright of a third party on whose behalf you are entitled to act; a description of the copyright work that you claim has been infringed; a description of the content that you claim is infringing and exact details of where on the Service the content that you claim is infringing was found; your contact information including your full name, address and telephone number and a valid email address on which you can be contacted; a statement by you that you have a good faith belief that the disputed use of the material is not authorized by the copyright owner, its agent, or the law; and a statement by you that the information in your notice is accurate and that you are authorized to act on behalf of the owner of the exclusive right that is allegedly infringed.\n
+
+If you discover any content on the Service that you believe infringes any of your other proprietary rights (including but not limited to trademarks, or rights of personality), please report this by following the above guidelines and send your notice to contact@yoblunt.com\n
+
+\n\n7. Advertising\n
+The Service may contain advertising and we may display advertising to you in conjunction with your use of the Service.\n
+
+\n\n8. Privacy\n
+All personal data that you provide to us in connection with your use of the Service is collected, used and processed by us in strict accordance with applicable data protection laws and our Privacy Policy.\n
+
+\n\n9. Third Party Services\n
+The Service includes and links to features and services (including but not limited to, social applications like Facebook and WhatsApp) that are provided by a third party. We do not control such third party sites or services and are not responsible for the content or functionality of such sites or services. Our inclusion of links does not imply any endorsement or association with their operators. The terms applicable to the use of such third party services will apply and we will not be responsible for anything that is done by you or the third party service provider in connection with your use of their service.\n
+
+\n\n10. Termination\n
+We may suspend or terminate your use of and access to the Service at any time and for any reason, in our sole discretion, including if we cease to provide the Service. Such suspension or termination shall be without prejudice to (and not be deemed a waiver of) any other claims that we may have against you. We shall use our reasonable endeavors to notify you in advance of any suspension or termination.\n
+
+To wish to delete a content uploaded by you, you would need to contact YoBlunt at contact@yoblunt.com and give reasonable explanations to delete the content. If considered valid YoBlunt will delete the content and notify you.\n
+
+\n\n11. Representations and Warranties\n
+You promise to us that: your User Content will not infringe the rights of any third party, including any intellectual property rights, rights in confidential information or rights in privacy; you have obtained all necessary permissions and consents from any persons appearing in User Content; and your User Content will comply with these Terms.\n
+
+You agree to defend, indemnify and hold harmless YoBlunt, its independent contractors, service providers and consultants, and their respective directors, officers, employees and agents (collectively, YoBlunt Parties), from and against any claims, damages, costs, liabilities and expenses (including, but not limited to, reasonable attorneys' fees) arising out of or related to\n
+
+your use of the Services;
+any User Content or Submission you provide;
+your violation of these Terms;
+your violation of any rights of another; or
+your conduct in connection with the Services.
+\n\n12. Disclaimers and Limitations\n
+YOUR USE OF THE SERVICE IS ON AN AS IS AND AS AVAILABLE BASIS. THE SERVICE AND ANY CONTENT OR MATERIAL DISPLAYED ON THE SERVICE IS PROVIDED WITHOUT ANY GUARANTEES, CONDITIONS OR WARRANTIES AS TO ITS ACCURACY, SUITABILITY, COMPLETENESS OR RELIABILITY. WE WILL NOT BE LIABLE TO YOU FOR THE UNAVAILABILITY OR FAILURE OF THE SERVICE.\n
+
+WE EXPRESSLY EXCLUDE OUR LIABILITY FOR ANY LOSS OR DAMAGE ARISING FROM THE USE OF THE SERVICE BY ANY PERSON IN CONTRAVENTION OF THESE TERMS. YOU UNDERSTAND THAT VIDEO, SOUND RECORDINGS AND ANY OTHER CONTENT AVAILABLE ON THE SERVICE IS PROVIDED BY USERS, NOT US, AND WE ARE NOT RESPONSIBLE OR LIABLE TO YOU FOR THIS CONTENT ON THE SERVICE.\n
+
+FORESEEABLE BY US AND WHICH IS INCURRED BY YOU IN CONNECTION WITH THE SERVICE, INCLUDING LOSS OF PROFITS; AND (B) ANY LOSS OR DAMAGE INCURRED BY YOU AS A RESULT OF YOUR BREACH OF THESE TERMS.WE EXPRESSLY EXCLUDE ANY LIABILITY FOR (A) ANY LOSS OR DAMAGE THAT WAS NOT REASONABLY\n
+
+TO THE FULLEST EXTENT PERMITTED BY LAW, WE SHALL NOT BE LIABLE TO YOU OR ANY OTHER PARTY FOR ANY LOSS OR DAMAGE, REGARDLESS OF THE FORM OF ACTION OR BASIS OF ANY CLAIM. YOU ACKNOWLEDGE AND AGREE THAT YOUR SOLE AND EXCLUSIVE REMEDY FOR ANY DISPUTE WITH US IS TO TERMINATE YOUR USE OF THE SERVICE.\n
+
+Nothing in these Terms shall however limit or exclude our liability for: \n
+
+  (i).  death or personal injury resulting from our negligence;\n
+  (ii). intentional acts, fraud or fraudulent misrepresentation; and\n
+  (iii).any other liability that cannot be excluded or limited by law.\n
+\n\n14. Other Terms\n
+YoBlunt may assign, sub-contract and/or otherwise transfer any or all of our rights and/or obligations under these Terms to any company, firm or person. You may not transfer your rights or obligations under these Terms to anyone else.
+
+Each of the provisions of these Terms operates separately. In the event that any of the provisions in these Terms are held to be unlawful or unenforceable, those provisions shall be limited or eliminated to the minimum extent necessary, and the remaining provisions of these Terms will remain in full force and effect.
+
+These Terms and our Privacy Policy constitute the entire agreement between you and us and supersede all prior and contemporaneous agreements or communications.
+
+No person who is not party to these Terms may enforce any term of it.
+
+These Terms and any dispute or claim arising out of or in connection with it or its subject matter or formation (including non-contractual disputes or claims) shall be governed by and construed in accordance with the Indian law, with the exception of the provisions on the conflict of laws."
+                />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

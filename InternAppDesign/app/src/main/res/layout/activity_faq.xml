@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="tech.mohitkumar.internappdesign.Activities.FAQActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:text="FAQ"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What kind of videos can be uploaded on YoBlunt.com?
+
+At YoBlunt user can share self-narrative sefie video upto 60 seconds describing any real thought, opinion, frustration, grudge or confession.
+
+Why should I upload my video to YoBlunt?
+
+There are so many feelings which we cannot share in the real world, sharing them on other social network always come with a risk of judgment and social boycott. With YoBlunt you could be completely anonymous and share your thoughts, you can feel the relief and Fun. Don�t take our word for it, do it and feel it.
+
+When does my video get uploaded?
+
+Once the video is shared by you, YoBlunt moderators review the video content to weed out inappropriate posts. Once done, the video goes live on site, under the video category chosen by you. Signed up user can see status of their video in their profile.
+
+How is YoBlunt different from other social networking sites?
+
+The fact that users don�t have an identity when using the service makes YoBlunt different. There are no followers, friends or profiles when uploading a video. Users cannot search other users. Just simply upload your 60 second or less, frustration video, without any Signup or identity! Even if you sign up your identity is anonymous to all users but you have some features available to only sign up users.
+
+What do I do if I want my video to be removed?
+
+We have a dedicated team of support staff to assist you. If the video violates our rules, we will remove it from all feeds and suspend the user who made it. To report email us at contact@yoblunt.com , with subject line, Someone posted something and I want it taken down . Once you report it will be removed from YoBlunt.com and sent to our team for review.
+
+Why would I enjoy YoBlunt?
+
+Some YoBlunts videos are hilarious while some make you question your faith in humanity. The absence of an identity, above all else, attracts users to record and share videos, as it gives them a sense of anonymity. Users can share intimate secrets without the risk of their personal identity being damaged or put at risk by the secret. This is a great space where young teens, couples, employees, parents, husbands, wives and many more- can come to release their built up emotions as it is completely anonymous so they don�t have to worry about being judged for their own opinions.
+
+Can other users or my friends on social media know my identity / location / profile?
+
+Your information and activity is safe with us and is not posted on FB, Google plus or any other platforms! Unless you make a BOLD confession showing your full face or saying your name, YoBlunt.com keeps users identities anonymous.
+
+Why was my video not uploaded on the website?
+
+YoBlunt reserves the right to reject videos if incase the quality of the video as per criteria or contain any content, information or material that infringes the rights of any third party including copyright, trade mark rights, confidential information or rights of privacy; violate any applicable laws; contain any content or material that is discriminatory, obscene, violent, sexually explicit, which promotes or encourages violence, terrorism or any other illegal acts ; in any way promote or incite anyone to commit or assist in any unlawful or criminal activity or anti-social behavior, or encourage activities which could endanger the safety or wellbeing of others; identify any person without their consent, or the consent of their parent or legal guardian if they are under 18 years of age; disclose anyone�s personal contact details or invade their privacy; contain any viruses or other malicious or harmful programs; or include any advertising or promotional messages.
+
+"
+        />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

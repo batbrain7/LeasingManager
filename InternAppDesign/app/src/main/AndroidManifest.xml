@@ -56,9 +56,11 @@
             android:label=""
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Activities.SettingsActivity"
-            android:label="@string/title_activity_settings"></activity>
+        <activity android:name=".Activities.SettingsProfile" />
+        <activity android:name=".Activities.TermsofUser" />
+        <activity android:name=".Activities.PrivacyPolicy" />
+        <activity android:name=".Activities.FAQActivity" />
+        <activity android:name=".Activities.FeedBackActivity"></activity>
     </application>
 
 </manifest>

@@ -20,9 +20,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import me.anwarshahriar.calligrapher.Calligrapher;
+import tech.mohitkumar.internappdesign.Activities.FAQActivity;
 import tech.mohitkumar.internappdesign.Activities.NotificationActivity;
 import tech.mohitkumar.internappdesign.Activities.ProfileActivity;
-import tech.mohitkumar.internappdesign.Activities.SettingsActivity;
+import tech.mohitkumar.internappdesign.Activities.SettingsProfile;
 import tech.mohitkumar.internappdesign.Activities.UploadActivity;
 import tech.mohitkumar.internappdesign.Adapters.ViewPagerAdapter;
 import tech.mohitkumar.internappdesign.Fragments.GroupFragment;
@@ -158,10 +159,10 @@ public class MainActivity extends AppCompatActivity
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_settings) {
-            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+            Intent intent = new Intent(MainActivity.this, SettingsProfile.class);
             startActivity(intent);
         } else if (id == R.id.nav_faq) {
-
+            startActivity(new Intent(MainActivity.this, FAQActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

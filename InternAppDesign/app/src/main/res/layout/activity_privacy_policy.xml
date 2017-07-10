@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="tech.mohitkumar.internappdesign.Activities.PrivacyPolicy">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:orientation="vertical"
+        android:padding="8dp"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Privacy Policy"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:gravity="center"
+            android:padding="10dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="YoBlunt is committed to protecting and respecting your privacy. Please read this Privacy Policy to understand how we will collect, process and use (together process) your personal data in conjunction with the terms of use for the YoBlunt service, for which we are the data controller, via the YoBlunt website available at www.YoBlunt.com. Below, we have indicated which parts of this Privacy Policy are applicable to the Website. If you do not agree with the way we process personal data in accordance this Privacy Policy in whole or any part of it, then you should not use the Service."
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="23dp"
+            android:textColor="#000"
+            android:layout_marginTop="10dp"
+            android:text="Features and services of Third Parties"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="The Service may include and link to features and services (such as social applications like Facebook, WhatsApp and GooglePlus) that are provided by a third party. Use of these third party services is at your own choice. If you use these features and services, please understand that the third parties that operate them may collect information from you which will be used in accordance with their own privacy policy and terms of use, which may differ from ours. We do not accept any responsibility or liability for these policies or for any personal data that may be collected through these websites or services. You should always read the privacy policy of any feature or service you access carefully in order to understand the specific privacy and information usage practices.
+
+Information we may collect from you and how we use it
+We may process the following personal data for the purpose of providing the Service to you in accordance with our Terms of Use, Personal Information is not required for uploading a video. You provide to us information when you Login only. We process information that is required for the provision of the Service and entered on the Service by you. Further, when material is accessed on a third party platform or social network (such as Facebook), that third party may provide us with the information based on your settings on that third party platform.
+
+Security of Your Information
+We take the security of your personal information seriously and use appropriate technical and organizational measures to protect your personal information against unauthorized or unlawful processing and against accidental loss, destruction or damage. However, the transmission of information via the internet is not completely secure. Therefore, we cannot guarantee the security of your data during its transmission to or from the Service.
+
+Updates to this Privacy Policy
+We may update this privacy policy from time to time to reflect any changes:
+
+in our policies or relevant laws; or
+in the functionality of the Service. Any updates will be notified to you.
+Contact Us
+If you have any questions or comments about this Privacy Policy or privacy matters generally, you can email us at contact@yoblunt.com ."
+            />
+    </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
