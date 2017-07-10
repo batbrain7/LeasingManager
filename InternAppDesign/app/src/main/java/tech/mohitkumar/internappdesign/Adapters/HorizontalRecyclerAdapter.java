@@ -23,11 +23,10 @@ public class HorizontalRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
     Context context;
     ArrayList<HorizontalItems> arrayList = new ArrayList<HorizontalItems>();
 
-    private int rowIndex = -1;
+    int rowIndex = -1;
 
-    public HorizontalRecyclerAdapter(Context context, ArrayList<HorizontalItems> arrayList) {
+    public HorizontalRecyclerAdapter(Context context) {
         this.context = context;
-        this.arrayList = arrayList;
     }
 
     @Override

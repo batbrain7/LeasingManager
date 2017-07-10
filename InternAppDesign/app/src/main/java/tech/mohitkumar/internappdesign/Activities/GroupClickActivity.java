@@ -23,7 +23,7 @@ public class GroupClickActivity extends AppCompatActivity {
     RecyclerViewAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
     CardViewData cardViewData;
-    ArrayList<CardViewData> arrayList = new ArrayList<CardViewData>();
+    ArrayList<Object> arrayList = new ArrayList<Object>();
     FloatingActionButton fab;
 
     @Override

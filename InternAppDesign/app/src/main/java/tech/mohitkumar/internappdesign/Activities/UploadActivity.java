@@ -85,7 +85,7 @@ public class UploadActivity extends AppCompatActivity implements View.OnClickLis
 
                 if (textView.getText().toString().equals("Choose an emotion") || editText.getText().toString().equals("")
                         || editText1.getText().equals("")) {
-                    Toast.makeText(getApplicationContext(),"Please choose an emotion first",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"All the fields are mandatory",Toast.LENGTH_LONG).show();
                 } else {
 
                     animatedCircleLoadingView.startDeterminate();

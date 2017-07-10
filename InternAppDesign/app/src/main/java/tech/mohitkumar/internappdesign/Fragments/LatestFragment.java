@@ -28,6 +28,7 @@ import tech.mohitkumar.internappdesign.Adapters.RecyclerViewAdapter;
 import tech.mohitkumar.internappdesign.Interface.VideoFinished;
 import tech.mohitkumar.internappdesign.MainActivity;
 import tech.mohitkumar.internappdesign.Models.CardViewData;
+import tech.mohitkumar.internappdesign.Models.HorizontalItems;
 import tech.mohitkumar.internappdesign.R;
 
 /**
@@ -42,13 +43,14 @@ public class LatestFragment extends Fragment {
     RecyclerViewAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
     CardViewData cardViewData;
-    ArrayList<CardViewData> arrayList = new ArrayList<CardViewData>();
+    ArrayList<Object> arrayList = new ArrayList<Object>();
 
     public LatestFragment() {
         // Required empty public constructor
     }
 
     String[] name = {"Frustrated about modi ji's demonetization","I'm an engineer from Amity Noida and i'm sick and tired of being down valued at placements.","I confess-\"Fought for my Partner- Lesbian partner","Izzat chaahata thaa…","Guilty Ashamed! Just wanted to pass the exam."};
+    String[] title = {"Video1","Video2","Video3","Video4","Video5"};
 
 
     @Override
@@ -63,7 +65,10 @@ public class LatestFragment extends Fragment {
             else
                 cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",name[i],"","","","","","","");
             arrayList.add(cardViewData);
+            HorizontalItems horizontalItems = new HorizontalItems(title[i],R.drawable.vid_thumb);
+            arrayList.add(horizontalItems);
         }
+
         Calligrapher calligrapher = new Calligrapher(getActivity());
         calligrapher.setFont(getActivity(),"Fonts/OpenSans-Regular.ttf",true);
 

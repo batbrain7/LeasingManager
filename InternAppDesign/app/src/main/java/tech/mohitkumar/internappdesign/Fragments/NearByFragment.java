@@ -29,7 +29,7 @@ public class NearByFragment extends Fragment {
     RecyclerViewAdapter adapter;
     RecyclerView.LayoutManager layoutManager;
     CardViewData cardViewData;
-    ArrayList<CardViewData> arrayList = new ArrayList<CardViewData>();
+    ArrayList<Object> arrayList = new ArrayList<Object>();
 
     public NearByFragment() {
         // Required empty public constructor

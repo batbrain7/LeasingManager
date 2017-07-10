@@ -55,6 +55,8 @@ import tech.mohitkumar.internappdesign.Models.CardViewData;
 import tech.mohitkumar.internappdesign.Models.HorizontalItems;
 import tech.mohitkumar.internappdesign.R;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by mohitkumar on 14/06/17.
  */
@@ -65,7 +67,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     List<Object> arrayList = new ArrayList<Object>();
     private final int horz=0,vert=1;
 
-    HorizontalRecyclerAdapter horizontalAdapter;
 
     private VideoFinished videoFinished;
 
@@ -102,142 +103,146 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         switch (holder1.getItemViewType()) {
             case horz :
                 RecyclerViewHolder1 holder2 = (RecyclerViewHolder1)holder1;
-                
+                ArrayList<HorizontalItems> list = new ArrayList<HorizontalItems>();
+                holder2.horizontalAdapter.setRowIndex(position);
+                holder2.horizontalAdapter.setData(list);
+                holder2.horizontalAdapter.setRowIndex(position);
+                Log.d(TAG, "onBindViewHolder: inside horz");
                 break;
             case vert :
+                final CardViewData cardViewData = (CardViewData) arrayList.get(position);
+                Handler mainHandler;
+                Timeline.Window window;
+                DataSource.Factory mediaDataSourceFactory;
+                DefaultTrackSelector trackSelector;
+                final boolean shouldAutoPlay;
+                int playerWindow;
+                long playerPosition;
+                BandwidthMeter bandwidthMeter;
+                DefaultExtractorsFactory extractorsFactory;
+
+                Typeface tf = Typeface.createFromAsset(context.getAssets(),"Fonts/OpenSans-Regular.ttf");
+                Typeface tff = Typeface.createFromAsset(context.getAssets(),"Fonts/SourceSansPro-Regular.ttf");
+
+                //   final RecyclerViewHolder holder = (RecyclerViewHolder)holder1;
+                final RecyclerViewHolder holder = (RecyclerViewHolder)holder1;
+
+                holder.name.setTypeface(tf);
+                holder.time.setTypeface(tf);
+                holder.views.setTypeface(tf);
+                holder.tag1.setTypeface(tf);
+                shouldAutoPlay = true;
+                bandwidthMeter = new DefaultBandwidthMeter();
+                mediaDataSourceFactory = new DefaultDataSourceFactory(context, Util.getUserAgent(context, "mediaPlayerSample"), (TransferListener<? super DataSource>) bandwidthMeter);
+                mainHandler = new Handler();
+                window = new Timeline.Window();
+
+                holder.customExoPlayerView.requestFocus();
+                TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveVideoTrackSelection.Factory(bandwidthMeter);
+                trackSelector = new DefaultTrackSelector(mainHandler, videoTrackSelectionFactory);
+                holder.player = ExoPlayerFactory.newSimpleInstance(context, trackSelector, new DefaultLoadControl(), null, false);
+                holder.customExoPlayerView.setPlayer(holder.player);
+                //    holder.player.setPlayWhenReady(shouldAutoPlay);
+                MediaSource mediaSource = new HlsMediaSource(Uri.parse(cardViewData.getLinks()),mediaDataSourceFactory, mainHandler, null);
+                holder.player.prepare(mediaSource);
+                holder.iml.setTypeface(tff);
+                holder.tag1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, GroupClickActivity.class);
+                        intent.putExtra("Name",holder.tag1.getText().toString());
+                        context.startActivity(intent);
+                    }
+                });
+
+                Log.d("INEND",Integer.toString(holder.getAdapterPosition()));
+
+                holder.player.addListener(new ExoPlayer.EventListener() {
+                    @Override
+                    public void onLoadingChanged(boolean isLoading) {
+
+                    }
+
+                    @Override
+                    public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+                        if (playbackState == ExoPlayer.STATE_ENDED) {
+                            Log.d("ENTERED","Entered");
+                            videoFinished.onVideoFinished(position);
+                        }
+                    }
+
+                    @Override
+                    public void onTimelineChanged(Timeline timeline, Object manifest) {
+
+                    }
+
+                    @Override
+                    public void onPlayerError(ExoPlaybackException error) {
+
+                    }
+
+                    @Override
+                    public void onPositionDiscontinuity() {
+
+                    }
+                });
+
+                holder.name.setText(cardViewData.getName());
+
+                holder.name.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(context, DetailsActivity.class);
+                        intent.putExtra("link",cardViewData.getLinks());
+                        intent.putExtra("name",cardViewData.getName());
+                        context.startActivity(intent);
+                    }
+                });
+
+                final Animation anm = AnimationUtils.loadAnimation(context,R.anim.transalte_scale);
+                final Animation anmback = AnimationUtils.loadAnimation(context,R.anim.translate_back);
+
+                final boolean[] a = {true};
+
+                holder.iml.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(a[0] == true) {
+                            holder.iml.setBackground(context.getResources().getDrawable(R.drawable.circular_black_button));
+                            a[0] = false;
+                        } else if(a[0] == false) {
+                            holder.iml.setBackgroundResource(0);
+                            a[0] = true;
+                        }
+                    }
+                });
+//        logtext.startAnimation(anm);
+                final boolean[] b = {true};
+                holder.heart.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(final View v) {
+                        if(b[0]) {
+
+                            holder.heart.startAnimation(anm);;
+                            holder.heart.startAnimation(anm);
+                            holder.heart.setImageResource(R.drawable.heart3);
+                            b[0] = false;
+                        } else if(!b[0]) {
+                            holder.heart.setImageResource(R.drawable.hearts);
+                            b[0] = true;
+                        }
+                    }
+                });
+
+                holder.reply.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        videoFinished.onInteraction(position);
+                    }
+                });
+
                 break;
         }
-        final CardViewData cardViewData = arrayList.get(position);
-        Handler mainHandler;
-        Timeline.Window window;
-        DataSource.Factory mediaDataSourceFactory;
-        DefaultTrackSelector trackSelector;
-        final boolean shouldAutoPlay;
-        int playerWindow;
-        long playerPosition;
-        BandwidthMeter bandwidthMeter;
-        DefaultExtractorsFactory extractorsFactory;
-
-        Typeface tf = Typeface.createFromAsset(context.getAssets(),"Fonts/OpenSans-Regular.ttf");
-        Typeface tff = Typeface.createFromAsset(context.getAssets(),"Fonts/SourceSansPro-Regular.ttf");
-
-     //   final RecyclerViewHolder holder = (RecyclerViewHolder)holder1;
-        final RecyclerViewHolder holder = (RecyclerViewHolder)holder1;
-
-        holder.name.setTypeface(tf);
-        holder.time.setTypeface(tf);
-        holder.views.setTypeface(tf);
-        holder.tag1.setTypeface(tf);
-        shouldAutoPlay = true;
-        bandwidthMeter = new DefaultBandwidthMeter();
-        mediaDataSourceFactory = new DefaultDataSourceFactory(context, Util.getUserAgent(context, "mediaPlayerSample"), (TransferListener<? super DataSource>) bandwidthMeter);
-        mainHandler = new Handler();
-        window = new Timeline.Window();
-
-        holder.customExoPlayerView.requestFocus();
-        TrackSelection.Factory videoTrackSelectionFactory = new AdaptiveVideoTrackSelection.Factory(bandwidthMeter);
-        trackSelector = new DefaultTrackSelector(mainHandler, videoTrackSelectionFactory);
-        holder.player = ExoPlayerFactory.newSimpleInstance(context, trackSelector, new DefaultLoadControl(), null, false);
-        holder.customExoPlayerView.setPlayer(holder.player);
-        //    holder.player.setPlayWhenReady(shouldAutoPlay);
-        MediaSource mediaSource = new HlsMediaSource(Uri.parse(cardViewData.getLinks()),mediaDataSourceFactory, mainHandler, null);
-        holder.player.prepare(mediaSource);
-        holder.iml.setTypeface(tff);
-        holder.tag1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, GroupClickActivity.class);
-                intent.putExtra("Name",holder.tag1.getText().toString());
-                context.startActivity(intent);
-            }
-        });
-
-        Log.d("INEND",Integer.toString(holder.getAdapterPosition()));
-
-        holder.player.addListener(new ExoPlayer.EventListener() {
-            @Override
-            public void onLoadingChanged(boolean isLoading) {
-
-            }
-
-            @Override
-            public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
-                if (playbackState == ExoPlayer.STATE_ENDED) {
-                    Log.d("ENTERED","Entered");
-                    videoFinished.onVideoFinished(position);
-                }
-            }
-
-            @Override
-            public void onTimelineChanged(Timeline timeline, Object manifest) {
-
-            }
-
-            @Override
-            public void onPlayerError(ExoPlaybackException error) {
-
-            }
-
-            @Override
-            public void onPositionDiscontinuity() {
-
-            }
-        });
-
-        holder.name.setText(cardViewData.getName());
-
-        holder.name.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, DetailsActivity.class);
-                intent.putExtra("link",cardViewData.getLinks());
-                intent.putExtra("name",cardViewData.getName());
-                context.startActivity(intent);
-            }
-        });
-
-        final Animation anm = AnimationUtils.loadAnimation(context,R.anim.transalte_scale);
-        final Animation anmback = AnimationUtils.loadAnimation(context,R.anim.translate_back);
-
-        final boolean[] a = {true};
-
-        holder.iml.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(a[0] == true) {
-                    holder.iml.setBackground(context.getResources().getDrawable(R.drawable.circular_black_button));
-                    a[0] = false;
-                } else if(a[0] == false) {
-                    holder.iml.setBackgroundResource(0);
-                    a[0] = true;
-                }
-            }
-        });
-//        logtext.startAnimation(anm);
-        final boolean[] b = {true};
-        holder.heart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                if(b[0]) {
-
-                    holder.heart.startAnimation(anm);;
-                    holder.heart.startAnimation(anm);
-                    holder.heart.setImageResource(R.drawable.heart3);
-                    b[0] = false;
-                } else if(!b[0]) {
-                    holder.heart.setImageResource(R.drawable.hearts);
-                    b[0] = true;
-                }
-            }
-        });
-
-        holder.reply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                videoFinished.onInteraction(position);
-            }
-        });
-
     }
 
     @Override
@@ -288,12 +293,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         Context context;
         RecyclerView recyclerView;
+        HorizontalRecyclerAdapter horizontalAdapter;
+
         public RecyclerViewHolder1(View itemView, Context context) {
             super(itemView);
             this.context = context;
             recyclerView = (RecyclerView) itemView.findViewById(R.id.recycler_view_inside);
             recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-            horizontalAdapter = new HorizontalRecyclerAdapter(context,arrayList);
+            horizontalAdapter = new HorizontalRecyclerAdapter(context);
             recyclerView.setAdapter(horizontalAdapter);
         }
     }

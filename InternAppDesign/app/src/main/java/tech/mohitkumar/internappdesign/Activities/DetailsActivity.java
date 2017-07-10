@@ -73,7 +73,7 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(ai[0] == true) {
-                    iml.setBackground(getResources().getDrawable(R.drawable.circular_black_button));
+                    iml.setBackground(getResources().getDrawable(R.drawable.circular_button));
                     ai[0] = false;
                 } else if(ai[0] == false) {
                     iml.setBackgroundResource(0);
@@ -94,7 +94,7 @@ public class DetailsActivity extends AppCompatActivity {
                     heart.setImageResource(R.drawable.heart3);
                     b[0] = false;
                 } else if(!b[0]) {
-                    heart.setImageResource(R.drawable.hearts);
+                    heart.setImageResource(R.drawable.sheart);
                     b[0] = true;
                 }
             }

@@ -1,5 +1,7 @@
 package tech.mohitkumar.internappdesign.Models;
 
+import java.util.ArrayList;
+
 /**
  * Created by mohitkumar on 14/06/17.
  */
@@ -7,6 +9,7 @@ package tech.mohitkumar.internappdesign.Models;
 public class CardViewData {
 
     String links,name,tag1,tag2,nolikes,noh4u,nocomments,timeelapsed,noviews;
+    ArrayList<HorizontalItems> arrayList;
 
     public String getLinks() {
         return links;
