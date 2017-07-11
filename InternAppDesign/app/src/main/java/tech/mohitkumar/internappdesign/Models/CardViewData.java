@@ -83,7 +83,15 @@ public class CardViewData {
         this.noviews = noviews;
     }
 
-    public CardViewData(String links, String name, String tag1, String tag2, String nolikes, String noh4u, String nocomments, String timeelapsed, String noviews) {
+    public ArrayList<HorizontalItems> getArrayList() {
+        return arrayList;
+    }
+
+    public void setArrayList(ArrayList<HorizontalItems> arrayList) {
+        this.arrayList = arrayList;
+    }
+
+    public CardViewData(String links, String name, String tag1, String tag2, String nolikes, String noh4u, String nocomments, String timeelapsed, String noviews, ArrayList<HorizontalItems> list) {
         setLinks(links);
         setName(name);
         setTag2(tag2);
@@ -93,5 +101,6 @@ public class CardViewData {
         setNoviews(noviews);
         setNolikes(nolikes);
         setTimeelapsed(timeelapsed);
+        setArrayList(list);
     }
 }

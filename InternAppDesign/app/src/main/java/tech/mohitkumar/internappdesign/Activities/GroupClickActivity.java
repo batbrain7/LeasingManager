@@ -15,6 +15,7 @@ import me.anwarshahriar.calligrapher.Calligrapher;
 import tech.mohitkumar.internappdesign.Adapters.RecyclerViewAdapter;
 import tech.mohitkumar.internappdesign.Interface.VideoFinished;
 import tech.mohitkumar.internappdesign.Models.CardViewData;
+import tech.mohitkumar.internappdesign.Models.HorizontalItems;
 import tech.mohitkumar.internappdesign.R;
 
 public class GroupClickActivity extends AppCompatActivity {
@@ -25,6 +26,8 @@ public class GroupClickActivity extends AppCompatActivity {
     CardViewData cardViewData;
     ArrayList<Object> arrayList = new ArrayList<Object>();
     FloatingActionButton fab;
+    ArrayList<HorizontalItems> listhor = new ArrayList<HorizontalItems>();
+    String[] title = {"Video1","Video2","Video3","Video4","Video5"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +46,14 @@ public class GroupClickActivity extends AppCompatActivity {
         }
 
         for(int i=0;i<5;i++) {
+            for(int j=0;j<5;j++) {
+                HorizontalItems horizontalItems = new HorizontalItems(title[i], R.drawable.vid_thumb);
+                listhor.add(horizontalItems);
+            }
             if(i%2 == 0)
-                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8","Title here","","","","","","","");
+                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8","Title here","","","","","","","",listhor);
             else
-                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8","Title here","","","","","","","");
+                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8","Title here","","","","","","","",listhor);
             arrayList.add(cardViewData);
         }
         Calligrapher calligrapher = new Calligrapher(GroupClickActivity.this);

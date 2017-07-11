@@ -20,19 +20,27 @@ import tech.mohitkumar.internappdesign.R;
 
 public class HorizontalRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    Context context;
-    ArrayList<HorizontalItems> arrayList = new ArrayList<HorizontalItems>();
+    ArrayList<HorizontalItems> arrayList;
 
     int rowIndex = -1;
 
-    public HorizontalRecyclerAdapter(Context context) {
-        this.context = context;
+    public void setData(ArrayList<HorizontalItems> data) {
+            arrayList = data;
+    }
+
+    public void setRowIndex(int index) {
+        rowIndex = index;
+    }
+
+
+    public HorizontalRecyclerAdapter() {
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
         View itemView = LayoutInflater.from(context).inflate(R.layout.horizontal_list, parent, false);
-        ItemViewHolder holder = new ItemViewHolder(itemView,arrayList,context);
+        ItemViewHolder holder = new ItemViewHolder(itemView);
         return holder;
     }
 
@@ -42,6 +50,7 @@ public class HorizontalRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
         ItemViewHolder itemViewHolder = (ItemViewHolder)holder;
         itemViewHolder.textView.setText(hItems.getTitle());
         itemViewHolder.imageView.setImageResource(hItems.getImage());
+        itemViewHolder.itemView.setTag(position);
     }
 
     @Override
@@ -50,29 +59,14 @@ public class HorizontalRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
-
         Context context;
         TextView textView;
         ImageView imageView;
         ArrayList<HorizontalItems> arrayList = new ArrayList<HorizontalItems>();
-        public ItemViewHolder(View itemView,ArrayList<HorizontalItems> arrayList,Context context) {
+        public ItemViewHolder(View itemView) {
             super(itemView);
-            this.context = context;
-            this.arrayList = arrayList;
             textView = (TextView) itemView.findViewById(R.id.text_list_horizontal);
             imageView = (ImageView) itemView.findViewById(R.id.image_list_horizontal);
         }
     }
-
-    public void setData(List<HorizontalItems> data) {
-        if(arrayList != data) {
-            arrayList = (ArrayList<HorizontalItems>) data;
-            notifyDataSetChanged();
-        }
-    }
-
-    public void setRowIndex(int index) {
-        rowIndex = index;
-    }
-
 }

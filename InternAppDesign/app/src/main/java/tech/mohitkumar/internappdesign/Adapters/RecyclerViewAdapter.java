@@ -19,7 +19,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import com.google.android.exoplayer2.DefaultLoadControl;
 import com.google.android.exoplayer2.ExoPlaybackException;
 import com.google.android.exoplayer2.ExoPlayer;
@@ -53,6 +52,7 @@ import tech.mohitkumar.internappdesign.CustomView.CustomExoPlayerView;
 import tech.mohitkumar.internappdesign.Interface.VideoFinished;
 import tech.mohitkumar.internappdesign.Models.CardViewData;
 import tech.mohitkumar.internappdesign.Models.HorizontalItems;
+import tech.mohitkumar.internappdesign.Models.HorizontalList;
 import tech.mohitkumar.internappdesign.R;
 
 import static android.content.ContentValues.TAG;
@@ -91,7 +91,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 break;
             case horz :
                 View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.custom_recy_layout_2, parent, false);
-                viewHolder = new RecyclerViewHolder1(view1,context);
+                viewHolder = new RecyclerViewHolder1(view1);
+                Log.d(TAG, "onCreateViewHolder: Horizontal recyclerview");
                 break;
         }
         return viewHolder;
@@ -102,11 +103,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         switch (holder1.getItemViewType()) {
             case horz :
+                HorizontalList list = (HorizontalList) arrayList.get(position);
                 RecyclerViewHolder1 holder2 = (RecyclerViewHolder1)holder1;
-                ArrayList<HorizontalItems> list = new ArrayList<HorizontalItems>();
                 holder2.horizontalAdapter.setRowIndex(position);
-                holder2.horizontalAdapter.setData(list);
-                holder2.horizontalAdapter.setRowIndex(position);
+                holder2.horizontalAdapter.setData(list.getArrayList());
                 Log.d(TAG, "onBindViewHolder: inside horz");
                 break;
             case vert :
@@ -249,7 +249,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public int getItemViewType(int position) {
         if(arrayList.get(position) instanceof CardViewData) {
             return vert;
-        } else if(arrayList.get(position) instanceof HorizontalItems) {
+        } else if(arrayList.get(position) instanceof HorizontalList) {
             return horz;
         }
         return -1;
@@ -271,7 +271,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         public RecyclerViewHolder(View itemView,Context context) {
             super(itemView);
-            this.context = context;
+                this.context = context;
                 cardView = (CardView) itemView.findViewById(R.id.card_view_card);
                 heart = (ImageView) itemView.findViewById(R.id.lik_btn);
                 reply = (ImageView) itemView.findViewById(R.id.reply);
@@ -291,16 +291,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public class RecyclerViewHolder1 extends RecyclerView.ViewHolder {
 
-        Context context;
         RecyclerView recyclerView;
         HorizontalRecyclerAdapter horizontalAdapter;
 
-        public RecyclerViewHolder1(View itemView, Context context) {
+        public RecyclerViewHolder1(View itemView) {
             super(itemView);
-            this.context = context;
+            //this.context = context;
+            Context context = itemView.getContext();
             recyclerView = (RecyclerView) itemView.findViewById(R.id.recycler_view_inside);
             recyclerView.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-            horizontalAdapter = new HorizontalRecyclerAdapter(context);
+            horizontalAdapter = new HorizontalRecyclerAdapter();
             recyclerView.setAdapter(horizontalAdapter);
         }
     }

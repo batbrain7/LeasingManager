@@ -29,6 +29,7 @@ import tech.mohitkumar.internappdesign.Interface.VideoFinished;
 import tech.mohitkumar.internappdesign.MainActivity;
 import tech.mohitkumar.internappdesign.Models.CardViewData;
 import tech.mohitkumar.internappdesign.Models.HorizontalItems;
+import tech.mohitkumar.internappdesign.Models.HorizontalList;
 import tech.mohitkumar.internappdesign.R;
 
 /**
@@ -44,6 +45,8 @@ public class LatestFragment extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     CardViewData cardViewData;
     ArrayList<Object> arrayList = new ArrayList<Object>();
+    ArrayList<HorizontalItems> listhor = new ArrayList<HorizontalItems>();
+    public static final String TAG = "Frag";
 
     public LatestFragment() {
         // Required empty public constructor
@@ -58,15 +61,25 @@ public class LatestFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view =  inflater.inflate(R.layout.fragment_latest, container, false);
-
+        for(int j=0;j<5;j++) {
+            HorizontalItems horizontalItems = new HorizontalItems(title[j], R.drawable.vid_thumb);
+            listhor.add(horizontalItems);
+        }
+        HorizontalList horList = new HorizontalList(listhor);
         for(int i=0;i<5;i++) {
-            if(i%2 == 0)
-                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8",name[i],"","","","","","","");
-            else
-                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",name[i],"","","","","","","");
-            arrayList.add(cardViewData);
-            HorizontalItems horizontalItems = new HorizontalItems(title[i],R.drawable.vid_thumb);
-            arrayList.add(horizontalItems);
+
+            if(i%2 == 0) {
+                Log.d(TAG, "onCreateView: " + Integer.toString(listhor.size()));
+                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8", name[i], "", "", "", "", "", "", "", listhor);
+            } else {
+                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", name[i], "", "", "", "", "", "", "", listhor);
+                Log.d(TAG, "onCreateView: " + Integer.toString(listhor.size()));
+            }
+            if(i%3 == 0) {
+                arrayList.add(horList);
+            } else {
+                arrayList.add(cardViewData);
+            }
         }
 
         Calligrapher calligrapher = new Calligrapher(getActivity());

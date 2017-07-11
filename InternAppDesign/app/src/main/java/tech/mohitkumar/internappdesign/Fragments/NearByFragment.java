@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 import me.anwarshahriar.calligrapher.Calligrapher;
 import tech.mohitkumar.internappdesign.Adapters.RecyclerViewAdapter;
 import tech.mohitkumar.internappdesign.Models.CardViewData;
+import tech.mohitkumar.internappdesign.Models.HorizontalItems;
+import tech.mohitkumar.internappdesign.Models.HorizontalList;
 import tech.mohitkumar.internappdesign.R;
 
 /**
@@ -30,11 +33,13 @@ public class NearByFragment extends Fragment {
     RecyclerView.LayoutManager layoutManager;
     CardViewData cardViewData;
     ArrayList<Object> arrayList = new ArrayList<Object>();
+    ArrayList<HorizontalItems> listhor = new ArrayList<HorizontalItems>();
+    public static final String TAG = "Frag";
 
     public NearByFragment() {
         // Required empty public constructor
     }
-
+    String[] title = {"Video1","Video2","Video3","Video4","Video5"};
     String[] name = {"Frustrated about modi ji's demonetization","I'm an engineer from Amity Noida and i'm sick and tired of being down valued at placements.","I confess-\"Fought for my Partner- Lesbian partner","Izzat chaahata thaa…","Guilty Ashamed! Just wanted to pass the exam."};
 
 
@@ -43,12 +48,25 @@ public class NearByFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_near_by, container, false);
+        for(int j=0;j<5;j++) {
+            HorizontalItems horizontalItems = new HorizontalItems(title[j], R.drawable.vid_thumb);
+            listhor.add(horizontalItems);
+        }
+        HorizontalList horList = new HorizontalList(listhor);
         for(int i=0;i<5;i++) {
-            if(i%2 == 0)
-                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8",name[i],"","","","","","","");
-            else
-                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",name[i],"","","","","","","");
-            arrayList.add(cardViewData);
+
+            if(i%2 == 0) {
+                Log.d(TAG, "onCreateView: " + Integer.toString(listhor.size()));
+                cardViewData = new CardViewData("http://playertest.longtailvideo.com/adaptive/bbbfull/bbbfull.m3u8", name[i], "", "", "", "", "", "", "", listhor);
+            } else {
+                cardViewData = new CardViewData("https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", name[i], "", "", "", "", "", "", "", listhor);
+                Log.d(TAG, "onCreateView: " + Integer.toString(listhor.size()));
+            }
+            if(i%3 == 0) {
+                arrayList.add(horList);
+            } else {
+                arrayList.add(cardViewData);
+            }
         }
 
         recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
